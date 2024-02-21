@@ -1,0 +1,87 @@
+<script>
+</script>
+
+<header>
+  <div class="logo">
+    <a href="/">Broccolingual</a>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="/">PROFILE</a></li>
+      <li><a href="/works">WORKS</a></li>
+      <li><a href="/contact">CONTACT</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <slot />
+</main>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+  :global(*) {
+    font-family: "Poppins", "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :global(:root) {
+    --bg-color: #0f0e17;
+    --bm-color: #fffffe;
+    --paragraph-color: #a7a9be;
+    --highlight-color: #ff8906;
+    --stroke-color: black;
+    --secondary-color: #f25f4c;
+    --point-color: #e53170;
+  }
+
+  :global(body) {
+    background-color: var(--bg-color);
+  }
+
+  :global(li) {
+    list-style: none;
+  }
+
+  :global(a) {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  :global(h1) {
+    color: var(--bm-color);
+  }
+
+  header {
+    width: 100%;
+    height: 80px;
+    padding: 0 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--bm-color);
+  }
+
+  header > nav > ul {
+    display: flex;
+    justify-content: space-between;
+  }
+  header > nav > ul > li {
+    margin: 0 24px;
+  }
+
+  header > nav > ul > li > a:hover {
+    color: var(--paragraph-color);
+  }
+
+  main {
+    width: 100%;
+    height: calc(100vh - 80px);
+    padding: 12px 36px;
+  }
+</style>
