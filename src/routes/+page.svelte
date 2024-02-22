@@ -3,13 +3,11 @@
 
 <div class="container">
   <div class="profile">
-    <div class="logo">
-      <img src="" alt="" />
-    </div>
+    <div class="logo"></div>
     <div class="info">
       <h1>BROCCOLINGUAL</h1>
       <p>Graduate Student, Computer Science dept.</p>
-      <p>Hardware Developer</p>
+      <p>FPGA Engineer (Image Processing)</p>
     </div>
   </div>
 </div>
@@ -33,7 +31,7 @@
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    background-color: var(--secondary-color);
+    background-color: var(--highlight-color);
   }
 
   .info {
