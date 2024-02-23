@@ -5,7 +5,7 @@
   <div class="profile">
     <div class="logo"></div>
     <div class="info">
-      <h1>BROCCOLINGUAL</h1>
+      <h1>Broccolingual</h1>
       <p>Graduate Student, Computer Science dept.</p>
       <p>FPGA Engineer (Image Processing)</p>
     </div>
@@ -16,6 +16,7 @@
   .container {
     width: 100%;
     height: 100%;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,6 +46,5 @@
   }
 
   .info p {
-    letter-spacing: 2px;
   }
 </style>
