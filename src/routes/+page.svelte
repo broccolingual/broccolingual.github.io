@@ -14,13 +14,6 @@
       <p class="author">- Steve Jobs</p>
     </div>
     <div class="inner">
-      <p class="context">
-        "Let's go invent tomorrow rather than worrying about what happened
-        yesterday."
-      </p>
-      <p class="author">- Steve Jobs</p>
-    </div>
-    <div class="inner">
       <p class="context">"Don't study to earn. Study to learn."</p>
       <p class="author">- Bill Gates</p>
     </div>
@@ -100,18 +93,13 @@
   }
 
   .saying .inner:nth-child(2) {
-    top: 80%;
-    left: 80%;
-  }
-
-  .saying .inner:nth-child(3) {
     top: 25%;
     left: 75%;
   }
 
-  .saying .inner:nth-child(4) {
-    top: 75%;
-    left: 25%;
+  .saying .inner:nth-child(3) {
+    top: 85%;
+    left: 40%;
   }
 
   .saying .inner p {
