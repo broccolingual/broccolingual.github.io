@@ -65,7 +65,7 @@
 
   :global(a) {
     text-decoration: none;
-    color: inherit;
+    color: var(--paragraph-color);
   }
 
   :global(a:hover) {
@@ -73,6 +73,10 @@
   }
 
   :global(h1) {
+    color: var(--bm-color);
+  }
+
+  :global(h2) {
     color: var(--bm-color);
   }
 

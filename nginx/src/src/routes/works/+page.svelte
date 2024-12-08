@@ -13,6 +13,7 @@
   href="https://rococo-brioche-c96086.netlify.app/"
   target="_blank"
   rel="noopener noreferrer">
+  https://rococo-brioche-c96086.netlify.app/
 </a>
 
 <h2>Twitch Watchparty</h2>
@@ -20,6 +21,7 @@
   href="https://naughty-mccarthy-e6ef3c.netlify.app/"
   target="_blank"
   rel="noopener noreferrer">
+  https://naughty-mccarthy-e6ef3c.netlify.app/
 </a>
 
 <style>
