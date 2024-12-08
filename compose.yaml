@@ -9,7 +9,6 @@ services:
     command: "/bin/sh -c 'while :; do sleep 20d & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./nginx/dist:/dist
       - /etc/letsencrypt:/etc/letsencrypt
     restart: always
 
@@ -19,7 +18,6 @@ services:
       dockerfile: Dockerfile
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 10d & wait $${!}; done;'"
     volumes:
-      - ./nginx/dist:/dist
       - /etc/letsencrypt:/etc/letsencrypt
     command: ["--version"]
     restart: always
