@@ -8,5 +8,19 @@
 
 <h1>My Works</h1>
 
+<h2>Turing Complete Guide</h2>
+<a
+  href="https://rococo-brioche-c96086.netlify.app/"
+  target="_blank"
+  rel="noopener noreferrer">
+</a>
+
+<h2>Twitch Watchparty</h2>
+<a
+  href="https://naughty-mccarthy-e6ef3c.netlify.app/"
+  target="_blank"
+  rel="noopener noreferrer">
+</a>
+
 <style>
 </style>
