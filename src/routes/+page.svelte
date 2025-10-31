@@ -8,22 +8,6 @@
 </svelte:head>
 
 <div class="container">
-  <div class="saying">
-    <div class="inner">
-      <p class="context">"Stay hungry. Stay foolish."</p>
-      <p class="author">- Steve Jobs</p>
-    </div>
-    <div class="inner">
-      <p class="context">"Don't study to earn. Study to learn."</p>
-      <p class="author">- Bill Gates</p>
-    </div>
-    <div class="inner">
-      <p class="context">
-        "You don't choose your passions. Your passions choose you."
-      </p>
-      <p class="author">- Jeff Bezos</p>
-    </div>
-  </div>
   <div class="profile">
     <div class="logo">
       <img src={logo} alt="broccolingual's logo" />
@@ -38,8 +22,7 @@
         Science dept.
       </p>
       <p>
-        <span class="material-icons">person</span>FPGA Engineer (Image
-        Processing)
+        <span class="material-icons">person</span>Embedded Systems / Digital Circuit Design / Machine Learning
       </p>
     </div>
   </div>
@@ -76,41 +59,6 @@
     align-items: center;
   }
 
-  .saying {
-    color: var(--paragraph-color);
-  }
-
-  .saying .inner {
-    position: absolute;
-    max-width: 480px;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-  }
-
-  .saying .inner:nth-child(1) {
-    top: 15%;
-    left: 20%;
-  }
-
-  .saying .inner:nth-child(2) {
-    top: 25%;
-    left: 75%;
-  }
-
-  .saying .inner:nth-child(3) {
-    top: 85%;
-    left: 40%;
-  }
-
-  .saying .inner p {
-    font-family: "Playfair Display", sans-serif;
-  }
-
-  .saying .inner p.context {
-    font-size: 24px;
-    font-weight: 500;
-  }
-
   .profile {
     display: flex;
     justify-content: center;
@@ -121,7 +69,7 @@
     width: 160px;
     height: 160px;
     border-radius: 50%;
-    background-color: var(--point-color);
+    background-color: var(--bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -140,7 +88,7 @@
 
   .info {
     margin-left: 24px;
-    color: var(--bm-color);
+    color: var(--paragraph-color);
   }
 
   .info h1 {
@@ -173,5 +121,40 @@
 
   .social ul li a span.material-icons {
     margin-right: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .profile {
+      flex-direction: column;
+    }
+
+    .logo {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 12px;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+      transition: transform 0.5s ease-out;
+    }
+
+    .info {
+      margin-left: 12px;
+    }
+
+    .info h1 {
+      font-size: 36px;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    .info p {
+      font-size: 14px;
+    }
+
+    .social ul li {
+      margin: 0 12px;
+    }
   }
 </style>

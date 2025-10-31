@@ -2,22 +2,29 @@
 </script>
 
 <header>
-  <div class="logo">
-    <a href="/">Broccolingual</a>
-  </div>
-  <nav>
-    <ul>
-      <li><a href="/">PROFILE</a></li>
-      <li><a href="/works">WORKS</a></li>
-      <li>
-        <a href="/contact">CONTACT</a>
-      </li>
-    </ul>
-  </nav>
+  
 </header>
 
 <main>
-  <slot />
+  <div class="container">
+    <nav>
+      <ul>
+        <li>
+          <a href="/">PROFILE</a>
+        </li>
+        <li>
+          <a href="/works">WORKS</a>
+        </li>
+        <li>
+          <a href="/contact">CONTACT</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="content">
+      <slot />
+    </div>
+  </div>
+
   <div class="icons">
     <i class="fas fa-microchip"></i>
     <i class="fas fa-code-branch"></i>
@@ -48,7 +55,7 @@
   :global(:root) {
     --bg-color: #0f0e17;
     --bm-color: #fffffe;
-    --paragraph-color: #a7a9be;
+    --paragraph-color: #cccccc;
     --highlight-color: #ff8906;
     --stroke-color: black;
     --secondary-color: #ff8906;
@@ -56,7 +63,21 @@
   }
 
   :global(body) {
-    background-image: linear-gradient(to bottom, #0f0e17, #0f0c29, #24243e);
+    background-color: var(--bg-color);
+  }
+
+  :global(body)::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("../lib/assets/background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+    filter: blur(3px) brightness(0.7);
+    transform: scale(1.02);
+    pointer-events: none;
   }
 
   :global(li) {
@@ -65,11 +86,7 @@
 
   :global(a) {
     text-decoration: none;
-    color: var(--paragraph-color);
-  }
-
-  :global(a:hover) {
-    color: var(--point-color);
+    color: var(--bm-color);
   }
 
   :global(h1) {
@@ -84,30 +101,54 @@
     vertical-align: middle;
   }
 
-  header {
-    width: 100%;
-    height: 80px;
-    padding: 0 36px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--bm-color);
-  }
-
-  header > nav > ul {
-    display: flex;
-    justify-content: space-between;
-  }
-  header > nav > ul > li {
-    margin: 0 24px;
-  }
-
   main {
     width: 100%;
-    height: calc(100vh - 80px);
+    height: 100vh;
     padding: 12px 36px;
+  }
+
+  main .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main .container nav {
+    width: 360px;
+    height: 100%;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main .container nav ul {
+    width: 100%;
+    padding-left: 48px;
+  }
+
+  main .container nav ul li {
+    width: 100%;
+    margin-bottom: 24px;
+    font-size: 24px;
+    letter-spacing: 4px;
+    border-bottom: 1px solid var(--bm-color);
+  }
+
+  main .container nav ul li:hover {
+    letter-spacing: 6px;
+    transform: scale(1.2);
+    transition: transform 0.5s ease-out;
+  }
+
+  main .container .content {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 48px;
   }
 
   .icons {
@@ -118,6 +159,7 @@
     position: absolute;
     font-size: 56px;
     animation: icon-in 3s 1;
+    filter: blur(3px) drop-shadow(10px 10px 0px rgba(0, 0, 0, 0.25));
   }
 
   @keyframes icon-in {
@@ -190,5 +232,42 @@
   .icons > i:nth-child(12) {
     top: 80%;
     left: 90%;
+  }
+
+  @media (max-width: 768px) {
+    main {
+      padding: 6px 18px;
+    }
+
+    main .container {
+      flex-direction: column;
+    }
+
+    main .container nav {
+      height: auto;
+      padding: 6px;
+      justify-content: flex-start;
+    }
+
+    main .container nav ul {
+      padding-left: 0px;
+    }
+
+    main .container nav ul li {
+      width: 100%;
+      margin-bottom: 12px;
+      font-size: 20px;
+      letter-spacing: 2px;
+      border-bottom: 1px solid var(--bm-color);
+    }
+
+    main .container nav ul li:hover {
+      letter-spacing: 4px;
+      transform: scale(1.1);
+    }
+
+    main .container .content {
+      padding: 12px;
+    }
   }
 </style>
