@@ -1,30 +1,22 @@
 <script>
-  import { onMount } from 'svelte';
+  import { page } from '$app/stores';
 
-  onMount(() => {
-    let menuItems = document.querySelectorAll('nav ul li');
-    menuItems.forEach(li => {
-      li.addEventListener('click', () => {
-        menuItems.forEach(el => el.classList.remove('selected'));
-        li.classList.add('selected');
-      });
-    });
-  });
+  const menuItems = [
+    { name: 'PROFILE', link: '/' },
+    { name: 'WORKS', link: '/works' },
+    { name: 'HISTORY', link: '/history' },
+  ];
 </script>
 
 <main>
   <div class="container">
     <nav>
       <ul>
-        <li class="selected">
-          <a href="/">PROFILE</a>
-        </li>
-        <li>
-          <a href="/works">WORKS</a>
-        </li>
-        <li>
-          <a href="/history">HISTORY</a>
-        </li>
+        {#each menuItems as item}
+          <li class="{ $page.url.pathname === item.link ? 'selected' : '' }">
+            <a href={item.link}>{item.name}</a>
+          </li>
+        {/each}
       </ul>
     </nav>
     <div class="content">

@@ -2,6 +2,34 @@
   import sc_turing_complete from "$lib/assets/works/turing-complete.png";
   import sc_twitch_watchparty from "$lib/assets/works/twitch-watchparty.png";
   import sc_rustui from "$lib/assets/works/rustui.png";
+  import background from "$lib/assets/background.png";
+
+  const items = [
+    {
+      title: "Rustui",
+      description: "Rust製のLinux向けTUIライブラリ",
+      link: "https://crates.io/crates/rustui/",
+      img: sc_rustui,
+    },
+    {
+      title: "VHDL Test Generator",
+      description: "VHDLのテストベンチを自動生成するツール",
+      link: "https://github.com/broccolingual/vhdl-test-generator/",
+      img: background,
+    },
+    {
+      title: "Turing Complete Guide",
+      description: "Turing Completeの非公式ガイド",
+      link: "https://rococo-brioche-c96086.netlify.app/",
+      img: sc_turing_complete,
+    },
+    {
+      title: "Twitch Watchparty",
+      description: "Twitchの配信を2窓で楽しむためのアプリ",
+      link: "https://naughty-mccarthy-e6ef3c.netlify.app/",
+      img: sc_twitch_watchparty,
+    },
+  ];
 </script>
 
 <svelte:head>
@@ -10,114 +38,20 @@
 </svelte:head>
 
 <div class="container">
-  <div class="item">
-    <div class="desc">
-      <h2>Rustui</h2>
-      <p>Rust製のLinux向けTUIライブラリ</p>
+  {#each items as item}
+    <div class="item">
+      <div class="desc">
+        <h2>{item.title}</h2>
+        <p>{item.description}</p>
+      </div>
+      <a
+        href={item.link}
+        target="_blank"
+        rel="noopener noreferrer">
+        <img src={item.img} alt="">
+      </a>
     </div>
-    <a
-      href="https://crates.io/crates/rustui/"
-      target="_blank"
-      rel="noopener noreferrer">
-      <img src={sc_rustui} alt="">
-    </a>
-  </div>
-  <div class="item">
-    <div class="desc">
-      <h2>Turing Complete Guide</h2>
-      <p>Turing Completeの非公式ガイド</p>
-    </div>
-    <a
-      href="https://rococo-brioche-c96086.netlify.app/"
-      target="_blank"
-      rel="noopener noreferrer">
-      <img src={sc_turing_complete} alt="">
-    </a>
-  </div>
-  <div class="item">
-    <div class="desc">
-      <h2>Twitch Watchparty</h2>
-      <p>Twitchの配信を2窓で楽しむためのアプリ</p>
-    </div>
-    <a
-      href="https://naughty-mccarthy-e6ef3c.netlify.app/"
-      target="_blank"
-      rel="noopener noreferrer">
-      <img src={sc_twitch_watchparty} alt="">
-    </a>
-  </div>
-  <div class="item">
-    <div class="desc">
-      <h2>VHDL Test Generator</h2>
-      <p>VHDLのテストベンチを自動生成するツール</p>
-    </div>
-    <a
-      href="https://github.com/broccolingual/vhdl-test-generator/"
-      target="_blank"
-      rel="noopener noreferrer">
-      <img src="" alt="">
-    </a>
-  </div>
-  <div class="item">
-    <div class="desc">
-      <h2>I'm working on...</h2>
-      <p>...</p>
-    </div>
-    <a
-      href="/"
-      target="_blank"
-      rel="noopener noreferrer">
-      <img src="" alt="">
-    </a>
-  </div>
-  <div class="item">
-    <div class="desc">
-      <h2>I'm working on...</h2>
-      <p>...</p>
-    </div>
-    <a
-      href="/"
-      target="_blank"
-      rel="noopener noreferrer">
-      <img src="" alt="">
-    </a>
-  </div>
-  <div class="item">
-    <div class="desc">
-      <h2>I'm working on...</h2>
-      <p>...</p>
-    </div>
-    <a
-      href="/"
-      target="_blank"
-      rel="noopener noreferrer">
-      <img src="" alt="">
-    </a>
-  </div>
-  <div class="item">
-    <div class="desc">
-      <h2>I'm working on...</h2>
-      <p>...</p>
-    </div>
-    <a
-      href="/"
-      target="_blank"
-      rel="noopener noreferrer">
-      <img src="" alt="">
-    </a>
-  </div>
-  <div class="item">
-    <div class="desc">
-      <h2>I'm working on...</h2>
-      <p>...</p>
-    </div>
-    <a
-      href="/"
-      target="_blank"
-      rel="noopener noreferrer">
-      <img src="" alt="">
-    </a>
-  </div>
+  {/each}
 </div>
 
 <style>
