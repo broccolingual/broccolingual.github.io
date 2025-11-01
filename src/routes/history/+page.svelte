@@ -29,4 +29,14 @@
   .container > p {
     color: var(--bg-color);
   }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 12px 16px;
+    }
+
+    .container > h1 {
+      font-size: 28px;
+    }
+  }
 </style>

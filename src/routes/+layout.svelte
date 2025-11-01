@@ -124,6 +124,7 @@
     width: 100%;
     height: 100vh;
     padding: 12px;
+    overflow: hidden;
   }
 
   main .container {
@@ -169,11 +170,15 @@
     font-weight: bold;
   }
 
+  main .container nav ul li a {
+    width: 100%;
+  }
+
   main .container .content {
     width: 100%;
     height: 100%;
     overflow-y: auto;
-    padding: 48px;
+    padding: 24px;
   }
 
   /* scrollbar settings */
@@ -192,7 +197,13 @@
   
   .icons {
     color: var(--paragraph-color);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
+    z-index: -5;
   }
 
   .icons > i {
@@ -200,7 +211,6 @@
     font-size: 56px;
     animation: icon-in 3s 1;
     filter: blur(3px) drop-shadow(10px 10px 0px rgba(0, 0, 0, 0.25));
-    z-index: -5;
   }
 
   @keyframes icon-in {
@@ -309,6 +319,10 @@
 
     main .container .content {
       padding: 12px;
+    }
+
+    .icons > i {
+      transform: scale(0.5);
     }
   }
 </style>
