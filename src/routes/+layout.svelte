@@ -1,4 +1,15 @@
 <script>
+  import { onMount } from 'svelte';
+
+  onMount(() => {
+    let menuItems = document.querySelectorAll('nav ul li');
+    menuItems.forEach(li => {
+      li.addEventListener('click', () => {
+        menuItems.forEach(el => el.classList.remove('selected'));
+        li.classList.add('selected');
+      });
+    });
+  });
 </script>
 
 <header>
@@ -9,14 +20,14 @@
   <div class="container">
     <nav>
       <ul>
-        <li>
+        <li class="selected">
           <a href="/">PROFILE</a>
         </li>
         <li>
           <a href="/works">WORKS</a>
         </li>
         <li>
-          <a href="/contact">CONTACT</a>
+          <a href="/history">HISTORY</a>
         </li>
       </ul>
     </nav>
@@ -53,8 +64,8 @@
   }
 
   :global(:root) {
-    --bg-color: #0f0e17;
-    --bm-color: #fffffe;
+    --bg-color: #141414;
+    --bm-color: #dddddc;
     --paragraph-color: #cccccc;
     --highlight-color: #ff8906;
     --stroke-color: black;
@@ -74,8 +85,8 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: -1;
-    filter: blur(3px) brightness(0.7);
+    z-index: -10;
+    filter: blur(3px) brightness(0.65);
     transform: scale(1.02);
     pointer-events: none;
   }
@@ -89,11 +100,22 @@
     color: var(--bm-color);
   }
 
+  :global(p) {
+    color: var(--paragraph-color);
+  }
+
   :global(h1) {
+    letter-spacing: 1px;
     color: var(--bm-color);
   }
 
   :global(h2) {
+    letter-spacing: 1px;
+    color: var(--bm-color);
+  }
+
+  :global(h3) {
+    letter-spacing: 1px;
     color: var(--bm-color);
   }
 
@@ -104,7 +126,7 @@
   main {
     width: 100%;
     height: 100vh;
-    padding: 12px 36px;
+    padding: 12px;
   }
 
   main .container {
@@ -140,8 +162,14 @@
 
   main .container nav ul li:hover {
     letter-spacing: 6px;
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: transform 0.5s ease-out;
+  }
+
+  main .container nav ul li.selected {
+    letter-spacing: 6px;
+    transform: scale(1.1);
+    font-weight: bold;
   }
 
   main .container .content {
@@ -151,6 +179,20 @@
     padding: 48px;
   }
 
+  /* scrollbar settings */
+  main .container .content::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  main .container .content::-webkit-scrollbar-thumb {
+    background-color: var(--bm-color);
+    border-radius: 6px;
+  }
+  main .container .content::-webkit-scrollbar-track {
+    background-color: var(--bg-color);
+    border-radius: 6px;
+  }
+  
   .icons {
     color: var(--paragraph-color);
   }
@@ -160,6 +202,7 @@
     font-size: 56px;
     animation: icon-in 3s 1;
     filter: blur(3px) drop-shadow(10px 10px 0px rgba(0, 0, 0, 0.25));
+    z-index: -5;
   }
 
   @keyframes icon-in {

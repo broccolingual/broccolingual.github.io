@@ -1,5 +1,5 @@
 <script>
-  import logo from "../lib/assets/logo.png";
+  import logo from "$lib/assets/logo.png";
 </script>
 
 <svelte:head>
@@ -26,6 +26,23 @@
       </p>
     </div>
   </div>
+  <div class="details">
+    <div class="skills">
+      <div class="title">
+        <h2>Skills</h2>
+      </div>
+      <div class="contents">
+        <div class="content">
+          <h3>Languages</h3>
+          <p>Python, Rust, Go, C, C#, Java, TypeScript, Vue.js, Svelte</p>
+        </div>
+        <div class="content">
+          <h3>Tools / Services</h3>
+          <p>Git, Docker, Supabase, Heroku, Firebase, Github Actions</p>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="social">
     <ul>
       <li>
@@ -33,7 +50,7 @@
           href="https://github.com/broccolingual"
           target="_blank"
           rel="noopener noreferrer"
-          ><span class="material-icons">link</span>Github</a
+          ><i class="fab fa-github"></i>Github</a
         >
       </li>
       <li>
@@ -41,7 +58,15 @@
           href="https://qiita.com/Broccolingual"
           target="_blank"
           rel="noopener noreferrer"
-          ><span class="material-icons">link</span>Qiita</a
+          ><i class="icon-qiita"></i>Qiita</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/broccolingual/dotfiles"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><i class="fas fa-code"></i>dotfiles</a
         >
       </li>
     </ul>
@@ -57,22 +82,56 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 24px;
   }
 
-  .profile {
+  .container > div {
+    min-width: 60%;
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .details {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 12px;
+    padding: 12px 24px;
+  }
+
+  .details > .skills {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .details > .skills > .title {
+    width: 20%;
+    height: 100%;
+    align-content: center;
+    border-right: 1px solid var(--bm-color);
+  }
+
+  .details > .skills > .contents > .content {
+    padding: 4px 0;
+  }
+
+  .details > .skills > .contents > .content > h3 {
+    font-size: 16px;
   }
 
   .logo {
-    width: 160px;
-    height: 160px;
+    width: 120px;
+    height: 120px;
+    border: 2px solid var(--bm-color);
+    border-style: dashed;
     border-radius: 50%;
-    background-color: var(--bg-color);
+    background-color: rgba(0, 0, 0, 0.4);
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   }
 
   .logo > img {
@@ -92,8 +151,8 @@
   }
 
   .info h1 {
-    font-size: 48px;
-    letter-spacing: 2px;
+    font-size: 42px;
+    letter-spacing: 4px;
   }
 
   .info p {
@@ -101,11 +160,10 @@
   }
 
   .info p > span.material-icons {
-    margin-right: 8px;
+    margin-right: 12px;
   }
 
   .social {
-    margin-top: 12px;
     color: var(--bm-color);
   }
 
@@ -119,13 +177,32 @@
     margin: 0 24px;
   }
 
-  .social ul li a span.material-icons {
+  .social ul li a i {
     margin-right: 8px;
+  }
+
+  .social ul li a i.icon-qiita::before {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-image: url("../lib/assets/qiita-white-icon.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
   }
 
   @media (max-width: 768px) {
     .profile {
       flex-direction: column;
+    }
+
+    .details {
+      padding: 6px 12px;
+    }
+
+    .details > .skills > .title {
+      width: 50%;
     }
 
     .logo {
