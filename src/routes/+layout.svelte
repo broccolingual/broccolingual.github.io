@@ -12,10 +12,6 @@
   });
 </script>
 
-<header>
-  
-</header>
-
 <main>
   <div class="container">
     <nav>
@@ -75,6 +71,7 @@
 
   :global(body) {
     background-color: var(--bg-color);
+    overflow: hidden;
   }
 
   :global(body)::before {
@@ -195,6 +192,7 @@
   
   .icons {
     color: var(--paragraph-color);
+    overflow: hidden;
   }
 
   .icons > i {
@@ -288,7 +286,7 @@
 
     main .container nav {
       height: auto;
-      padding: 6px;
+      padding: 6px 24px;
       justify-content: flex-start;
     }
 

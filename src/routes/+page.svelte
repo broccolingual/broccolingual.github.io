@@ -193,6 +193,10 @@
   }
 
   @media (max-width: 768px) {
+    .container {
+      gap: 6px;
+    }
+
     .profile {
       flex-direction: column;
     }
@@ -201,13 +205,31 @@
       padding: 6px 12px;
     }
 
+    .details > .skills {
+      flex-direction: column;
+      gap: 0;
+    }
+
     .details > .skills > .title {
-      width: 50%;
+      width: 100%;
+      border-right: none;
+    }
+
+    .details > .skills > .title > h2 {
+      font-size: 18px;
+    }
+
+    .details > .skills > .contents > .content > h3 {
+      font-size: 14px;
+    }
+
+    .details > .skills > .contents > .content > p {
+      font-size: 12px;
     }
 
     .logo {
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
       margin-bottom: 12px;
     }
 
@@ -221,7 +243,7 @@
     }
 
     .info h1 {
-      font-size: 36px;
+      font-size: 32px;
       letter-spacing: 2px;
       text-align: center;
     }
@@ -232,6 +254,10 @@
 
     .social ul li {
       margin: 0 12px;
+    }
+
+    .social ul li a {
+      font-size: 14px;
     }
   }
 </style>
