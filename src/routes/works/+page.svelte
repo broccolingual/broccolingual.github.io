@@ -6,7 +6,7 @@
 
 <svelte:head>
   <title>Broccolingual | Works</title>
-  <meta name="description" content="404" />
+  <meta name="description" content="Broccolingual's works" />
 </svelte:head>
 
 <div class="container">

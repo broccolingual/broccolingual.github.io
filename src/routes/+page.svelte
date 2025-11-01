@@ -4,7 +4,7 @@
 
 <svelte:head>
   <title>Broccolingual | Profile</title>
-  <meta name="description" content="404" />
+  <meta name="description" content="Broccolingual's profile page" />
 </svelte:head>
 
 <div class="container">
