@@ -49,7 +49,7 @@ arr = np.array([1, 2, 3])
 
 [GitHub](https://github.com/)はこちらです。
 
-![logo](/src/lib/assets/logo.png)
+![logo]({"$lib/assets/logo.png"})
 
 ### チェックボックス
 
