@@ -45,11 +45,9 @@ arr = np.array([1, 2, 3])
 | TD | TD | TD |
 | TD | TD | TD |
 
-### リンク・画像
+### リンク
 
 [GitHub](https://github.com/)はこちらです。
-
-![logo]({"$lib/assets/logo.png"})
 
 ### チェックボックス
 
