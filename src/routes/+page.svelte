@@ -93,7 +93,7 @@
   }
 
   .details {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 12px;
     padding: 12px 24px;
   }
@@ -127,7 +127,7 @@
     border: 2px solid var(--bm-color);
     border-style: dashed;
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;

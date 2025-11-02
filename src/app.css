@@ -1,0 +1,86 @@
+@import "prismjs/themes/prism-tomorrow.css";
+
+.article-content {
+  color: #cccccb;
+}
+
+.article-content h1 {
+    border-bottom: 1px solid #cccccb;
+    margin: 10px 0;
+}
+
+.article-content h2 {
+    border-bottom: 1px solid #cccccb;
+    margin: 8px 0;
+}
+
+.article-content h3 {
+    margin: 6px 0;
+}
+
+.article-content ul {
+    margin: 8px 0;
+}
+
+.article-content ol {
+    margin: 8px 0;
+}
+
+.article-content ul li {
+    color: #cccccb;
+    list-style: disc;
+    margin-left: 20px;
+}
+
+.article-content ol li {
+    color: #cccccb;
+    list-style: decimal;
+    margin-left: 20px;
+}
+
+.article-content pre {
+    border-radius: 6px;
+}
+
+.article-content pre code {
+    font-family: Consolas, Menlo, Courier, monospace;
+}
+
+.article-content pre code > span {
+    font-family: Consolas, Menlo, Courier, monospace;
+}
+
+.article-content table {
+    border-collapse: collapse;
+    margin: 8px;
+}
+
+.article-content table th {
+    border: 1px solid #888887;
+    background: #2d2d2d;
+    padding: 6px 12px;
+}
+
+.article-content table td {
+    border: 1px solid #888887;
+    padding: 6px 12px;
+}
+
+.article-content a {
+    color: #569cd6;
+    text-decoration: underline;
+}
+
+.article-content p > img {
+    max-height: 360px;
+}
+
+.article-content blockquote {
+    border-left: 4px solid #2d2d2d;
+    padding-left: 12px;
+    color: #888887;
+}
+
+.article-content details p {
+    margin-left: 16px;
+}

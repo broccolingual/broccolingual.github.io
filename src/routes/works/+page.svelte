@@ -37,6 +37,11 @@
   <meta name="description" content="Broccolingual's works" />
 </svelte:head>
 
+<section>
+  <h1>My Works</h1>
+  <p>Here are some of the projects I've worked on:</p>
+</section>
+
 <div class="container">
   {#each items as item}
     <div class="item">
@@ -55,16 +60,21 @@
 </div>
 
 <style>
+  section {
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
   .container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 320px;
-    gap: 16px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 300px;
+    gap: 12px;
   }
 
   .item {
     background-color: var(--bm-color);
-    border-radius: 6px;
+    border-radius: 12px;
     padding: 12px 16px;
     display: flex;
     flex-direction: column;
@@ -95,6 +105,19 @@
     object-fit: cover;
     background-position: center;
     background-repeat: no-repeat;
+  }
+
+  .item > a > img:hover {
+    transform: scale(1.1);
+    transition: transform 0.5s ease;
+  }
+
+  @media (max-width: 1024px) {
+    .container {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 260px;
+      gap: 10px;
+    }
   }
 
   @media (max-width: 768px) {

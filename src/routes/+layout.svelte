@@ -1,10 +1,11 @@
 <script>
   import { page } from '$app/stores';
+  import '../app.css';
 
   const menuItems = [
     { name: 'PROFILE', link: '/' },
     { name: 'WORKS', link: '/works' },
-    { name: 'HISTORY', link: '/history' },
+    { name: 'BLOG', link: '/blog' },
   ];
 </script>
 
