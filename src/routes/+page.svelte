@@ -194,7 +194,7 @@
 
   @media (max-width: 768px) {
     .container {
-      gap: 6px;
+      gap: 8px;
     }
 
     .profile {
@@ -250,6 +250,10 @@
 
     .info p {
       font-size: 14px;
+    }
+
+    .info p > span.material-icons {
+      margin-right: 4px;
     }
 
     .social ul li {

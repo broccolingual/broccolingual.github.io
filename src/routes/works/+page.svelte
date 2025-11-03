@@ -121,6 +121,10 @@
   }
 
   @media (max-width: 768px) {
+    section {
+      margin-bottom: 16px;
+    }
+
     .container {
       grid-template-columns: repeat(1, 1fr);
       grid-auto-rows: 220px;
@@ -129,6 +133,7 @@
 
     .item {
       padding: 8px 12px;
+      border-radius: 8px;
     }
 
     .item > .desc > h2 {

@@ -1,8 +1,8 @@
 export async function load() {
-  const modules = import.meta.glob('./*.md', { eager: true });
+  const modules = import.meta.glob('./posts/*.md', { eager: true });
   const posts = Object.entries(modules).map(([path, module]) => {
     return {
-      slug: path.replace('./', '').replace('.md', ''),
+      slug: path.replace('./posts/', '').replace('.md', ''),
       ...module.metadata
     };
   });

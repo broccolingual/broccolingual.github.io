@@ -7,7 +7,8 @@
 
 <article>
   <div class="meta">
-    <h1>{meta.title}<span>{meta.date}</span></h1>
+    <h1>{meta.title}</h1>
+    <p>{meta.date}</p>
     <ul class="tags">
       {#each meta.tags as tag}
         <li>{tag}</li>
@@ -54,10 +55,9 @@
     color: var(--bm-color);
   }
 
-  .meta h1 > span {
-    font-size: 16px;
+  .meta p {
+    font-size: 12px;
     color: #bbb;
-    margin-left: 12px;
   }
 
   .meta ul.tags {
@@ -74,5 +74,44 @@
     background-color: var(--bm-color);
     padding: 2px 8px;
     border-radius: 4px;
+  }
+
+  @media (max-width: 768px) {
+    a.go-back {
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    article {
+      border-radius: 8px;
+    }
+
+    .meta {
+      padding: 6px 18px 10px 18px;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .article-content {
+      padding: 6px 18px;
+    }
+
+    .meta h1 {
+      font-size: 30px;
+    }
+
+    .meta p {
+      font-size: 12px;
+    }
+
+    .meta ul.tags {
+      margin-top: 6px;
+      gap: 6px;
+    }
+
+    .meta ul.tags > li {
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
   }
 </style>

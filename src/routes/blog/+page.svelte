@@ -18,7 +18,8 @@
     <li>
       <div class="item">
         <a href={`/blog/${post.slug}`}>
-          <h3>{post.title}<span>{post.date}</span></h3>
+          <h3>{post.title}</h3>
+          <p>{post.date}</p>
           <ul class="tags">
             {#each post.tags as tag}
               <li>{tag}</li>
@@ -58,10 +59,9 @@
     font-size: 20px;
   }
 
-  .item > a > h3 > span {
-    font-size: 14px;
+  .item > a > p {
+    font-size: 12px;
     color: #bbb;
-    margin-left: 12px;
   }
 
   ul.tags {
@@ -78,5 +78,39 @@
     background-color: var(--bm-color);
     padding: 2px 8px;
     border-radius: 4px;
+  }
+
+  @media (max-width: 768px) {
+    section {
+      margin-bottom: 16px;
+    }
+
+    ul.articles {
+      gap: 8px;
+    }
+
+    .item {
+      padding: 6px 16px 9px 16px;
+      border-radius: 8px;
+    }
+
+    .item > a > h3 {
+      font-size: 18px;
+    }
+
+    .item > a > p {
+      font-size: 12px;
+    }
+
+    ul.tags {
+      margin-top: 6px;
+      gap: 6px;
+    }
+
+    ul.tags > li {
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
   }
 </style>

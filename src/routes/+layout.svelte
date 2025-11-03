@@ -311,7 +311,19 @@
     }
 
     main .container .content {
-      padding: 12px;
+      padding: 6px;
+    }
+
+    /* scrollbar settings */
+    main .container .content::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    main .container .content::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+    }
+    main .container .content::-webkit-scrollbar-track {
+      border-radius: 4px;
     }
 
     .icons > i {
