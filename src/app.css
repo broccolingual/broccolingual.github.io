@@ -101,6 +101,10 @@
         margin: 4px 0;
     }
 
+    .article-content p {
+        font-size: 16px;
+    }
+
     .article-content ul {
         margin: 6px 0;
     }
@@ -119,6 +123,8 @@
 
     .article-content pre {
         border-radius: 4px;
+        padding: 0.5em;
+        font-size: 14px;
     }
 
     .article-content table {
@@ -127,11 +133,12 @@
     }
 
     .article-content table th {
-        padding: 4px 8px;
+        padding: 4px 6px;
     }
 
     .article-content table td {
-        padding: 4px 8px;
+        padding: 4px 6px;
+        font-size: 14px;
     }
 
     .article-content p > img {

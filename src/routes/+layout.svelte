@@ -280,7 +280,7 @@
 
   @media (max-width: 768px) {
     main {
-      padding: 6px 18px;
+      padding: 6px;
     }
 
     main .container {
