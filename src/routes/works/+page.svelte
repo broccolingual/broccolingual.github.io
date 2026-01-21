@@ -12,6 +12,12 @@
       img: sc_rustui,
     },
     {
+      title: "rcc",
+      description: "Rust製のCコンパイラ",
+      link: "https://github.com/broccolingual/rcc/",
+      img: background,
+    },
+    {
       title: "VHDL Test Generator",
       description: "VHDLのテストベンチを自動生成するツール",
       link: "https://github.com/broccolingual/vhdl-test-generator/",
