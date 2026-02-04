@@ -3,7 +3,10 @@
   const { Content, meta } = data
 </script>
 
-<a class="go-back" href="/blog">← Go Back</a>
+<a class="go-back" href="/blog">
+  <span class="arrow">&#8592;</span>
+  <span>Back</span>
+</a>
 
 <article>
   <div class="meta">
@@ -22,96 +25,108 @@
 
 <style>
   a.go-back {
-    display: inline-block;
-    margin-bottom: 12px;
-    color: var(--bm-color);
-    font-size: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+    color: var(--text-muted);
+    font-size: 13px;
+    padding: var(--space-xs) 0;
+    transition: color var(--transition-base);
+  }
+
+  a.go-back .arrow {
+    transition: transform var(--transition-base);
   }
 
   a.go-back:hover {
-    text-decoration: underline;
+    color: var(--text-primary);
+  }
+
+  a.go-back:hover .arrow {
+    transform: translateX(-3px);
   }
 
   article {
     width: 100%;
     min-height: 100%;
-    background-color: var(--bg-color);
-    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--surface);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   .meta {
     width: 100%;
-    background-color: #2b2b2b;
-    padding: 12px 36px 20px 36px;
-    border-radius: 12px 12px 0 0;
+    padding: var(--space-2xl);
+    border-bottom: 1px solid var(--glass-border);
   }
 
   .article-content {
     width: 100%;
-    padding: 12px 36px;
+    padding: var(--space-2xl);
   }
 
   .meta h1 {
-    color: var(--bm-color);
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+    line-height: 1.4;
   }
 
   .meta p {
     font-size: 12px;
-    color: #bbb;
+    color: var(--text-muted);
+    margin-bottom: var(--space-md);
   }
 
   .meta ul.tags {
     width: 100%;
     display: flex;
-    margin-top: 6px;
-    gap: 6px;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
   }
 
   .meta ul.tags > li {
-    font-size: 14px;
-    font-weight: bold;
-    color: var(--bg-color);
-    background-color: var(--bm-color);
-    padding: 2px 8px;
-    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-muted);
+    padding: 2px var(--space-sm);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
   }
 
   @media (max-width: 768px) {
     a.go-back {
-      margin-bottom: 8px;
-      font-size: 16px;
+      margin-bottom: var(--space-md);
+      font-size: 12px;
     }
 
     article {
-      border-radius: 8px;
+      border-radius: var(--radius-md);
     }
 
     .meta {
-      padding: 6px 18px 10px 18px;
-      border-radius: 8px 8px 0 0;
+      padding: var(--space-lg);
     }
 
     .article-content {
-      padding: 6px 18px;
+      padding: var(--space-lg);
     }
 
     .meta h1 {
-      font-size: 30px;
+      font-size: 20px;
     }
 
     .meta p {
-      font-size: 12px;
-    }
-
-    .meta ul.tags {
-      margin-top: 6px;
-      gap: 6px;
+      font-size: 11px;
     }
 
     .meta ul.tags > li {
-      font-size: 12px;
-      padding: 2px 6px;
-      border-radius: 4px;
+      font-size: 10px;
     }
   }
 </style>

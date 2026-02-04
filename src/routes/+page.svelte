@@ -14,35 +14,33 @@
     </div>
     <div class="info">
       <h1>Broccolingual</h1>
-      <p>
-        <span class="material-icons">location_on</span>Osaka, Japan
-      </p>
-      <p>
-        <span class="material-icons">school</span>Graduate Student, Computer
-        Science dept.
-      </p>
-      <p>
-        <span class="material-icons">person</span>Embedded Systems / Digital Circuit Design / Machine Learning
-      </p>
-    </div>
-  </div>
-  <div class="details">
-    <div class="skills">
-      <div class="title">
-        <h2>Skills</h2>
-      </div>
-      <div class="contents">
-        <div class="content">
-          <h3>Languages</h3>
-          <p>Python, Rust, Go, C, C#, Java, TypeScript, Vue.js, Svelte</p>
-        </div>
-        <div class="content">
-          <h3>Tools / Services</h3>
-          <p>Git, Docker, Supabase, Heroku, Firebase, Github Actions</p>
-        </div>
+      <div class="meta">
+        <p>
+          <span class="material-icons">location_on</span>Osaka, Japan
+        </p>
+        <p>
+          <span class="material-icons">school</span>Graduate Student, Computer
+          Science dept.
+        </p>
+        <p>
+          <span class="material-icons">person</span>Embedded Systems / Digital Circuit Design / Machine Learning
+        </p>
       </div>
     </div>
   </div>
+
+  <div class="skills">
+    <div class="skill-group">
+      <h3>Languages</h3>
+      <p>Python, Rust, Go, C, C#, Java, TypeScript, Vue.js, Svelte</p>
+    </div>
+    <div class="divider"></div>
+    <div class="skill-group">
+      <h3>Tools / Services</h3>
+      <p>Git, Docker, Supabase, Heroku, Firebase, Github Actions</p>
+    </div>
+  </div>
+
   <div class="social">
     <ul>
       <li>
@@ -50,7 +48,7 @@
           href="https://github.com/broccolingual"
           target="_blank"
           rel="noopener noreferrer"
-          ><i class="fab fa-github"></i>Github</a
+          ><i class="fab fa-github"></i><span>Github</span></a
         >
       </li>
       <li>
@@ -58,7 +56,7 @@
           href="https://qiita.com/Broccolingual"
           target="_blank"
           rel="noopener noreferrer"
-          ><i class="icon-qiita"></i>Qiita</a
+          ><i class="icon-qiita"></i><span>Qiita</span></a
         >
       </li>
       <li>
@@ -66,7 +64,7 @@
           href="https://github.com/broccolingual/dotfiles"
           target="_blank"
           rel="noopener noreferrer"
-          ><i class="fas fa-code"></i>dotfiles</a
+          ><i class="fas fa-code"></i><span>dotfiles</span></a
         >
       </li>
     </ul>
@@ -82,186 +80,200 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 24px;
+    gap: var(--space-3xl);
   }
 
-  .container > div {
-    min-width: 60%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .details {
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 12px;
-    padding: 12px 24px;
-  }
-
-  .details > .skills {
-    width: 100%;
-    height: 100%;
+  .profile {
     display: flex;
     align-items: center;
-    gap: 12px;
-  }
-
-  .details > .skills > .title {
-    width: 20%;
-    height: 100%;
-    align-content: center;
-    border-right: 1px solid var(--bm-color);
-  }
-
-  .details > .skills > .contents > .content {
-    padding: 4px 0;
-  }
-
-  .details > .skills > .contents > .content > h3 {
-    font-size: 16px;
+    gap: var(--space-2xl);
   }
 
   .logo {
     width: 120px;
     height: 120px;
-    border: 2px solid var(--bm-color);
-    border-style: dashed;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-full);
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    flex-shrink: 0;
+    transition: border-color var(--transition-base), transform var(--transition-base);
   }
 
   .logo > img {
-    width: 75%;
-    height: 75%;
-    border-radius: 50%;
+    width: 80%;
+    height: 80%;
+    border-radius: var(--radius-full);
   }
 
   .logo:hover {
-    transform: scale(1.1);
-    transition: transform 0.5s ease-out;
-  }
-
-  .info {
-    margin-left: 24px;
-    color: var(--paragraph-color);
+    border-color: var(--accent);
+    transform: scale(1.05);
   }
 
   .info h1 {
-    font-size: 42px;
-    letter-spacing: 4px;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+    letter-spacing: -0.02em;
   }
 
-  .info p {
+  .meta p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-xs);
+    display: flex;
+    align-items: center;
+  }
+
+  .meta p > span.material-icons {
+    margin-right: var(--space-md);
+    color: var(--text-muted);
     font-size: 16px;
   }
 
-  .info p > span.material-icons {
-    margin-right: 12px;
+  .skills {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2xl);
+    padding: var(--space-xl) var(--space-2xl);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: border-color var(--transition-base);
   }
 
-  .social {
-    color: var(--bm-color);
+  .skills:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .divider {
+    width: 1px;
+    height: 48px;
+    background: var(--glass-border);
+    flex-shrink: 0;
+  }
+
+  .skill-group h3 {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-sm);
+  }
+
+  .skill-group p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
   }
 
   .social ul {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: var(--space-xs);
   }
 
-  .social ul li {
-    margin: 0 24px;
+  .social ul li a {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--text-muted);
+    font-size: 13px;
+    padding: var(--space-sm) var(--space-lg);
+    border-radius: var(--radius-md);
+    transition: color var(--transition-base), background var(--transition-base);
+  }
+
+  .social ul li a:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
   }
 
   .social ul li a i {
-    margin-right: 8px;
+    font-size: 16px;
   }
 
   .social ul li a i.icon-qiita::before {
     content: "";
     display: inline-block;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     background-image: url("../lib/assets/qiita-white-icon.png");
     background-size: contain;
     background-repeat: no-repeat;
     vertical-align: middle;
+    opacity: 0.5;
+    transition: opacity var(--transition-base);
+  }
+
+  .social ul li a:hover i.icon-qiita::before {
+    opacity: 0.85;
   }
 
   @media (max-width: 768px) {
     .container {
-      gap: 8px;
+      gap: var(--space-2xl);
     }
 
     .profile {
       flex-direction: column;
-    }
-
-    .details {
-      padding: 6px 12px;
-    }
-
-    .details > .skills {
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .details > .skills > .title {
-      width: 100%;
-      border-right: none;
-    }
-
-    .details > .skills > .title > h2 {
-      font-size: 18px;
-    }
-
-    .details > .skills > .contents > .content > h3 {
-      font-size: 14px;
-    }
-
-    .details > .skills > .contents > .content > p {
-      font-size: 12px;
+      text-align: center;
     }
 
     .logo {
       width: 100px;
       height: 100px;
-      margin-bottom: 12px;
-    }
-
-    .logo:hover {
-      transform: scale(1.1);
-      transition: transform 0.5s ease-out;
-    }
-
-    .info {
-      margin-left: 12px;
     }
 
     .info h1 {
-      font-size: 32px;
-      letter-spacing: 2px;
+      font-size: 26px;
+    }
+
+    .meta p {
+      font-size: 13px;
+      justify-content: center;
+    }
+
+    .meta p > span.material-icons {
+      margin-right: var(--space-sm);
+      font-size: 15px;
+    }
+
+    .skills {
+      flex-direction: column;
+      gap: var(--space-lg);
+      padding: var(--space-lg);
       text-align: center;
     }
 
-    .info p {
-      font-size: 14px;
+    .divider {
+      width: 48px;
+      height: 1px;
     }
 
-    .info p > span.material-icons {
-      margin-right: 4px;
+    .skill-group h3 {
+      font-size: 11px;
     }
 
-    .social ul li {
-      margin: 0 12px;
+    .skill-group p {
+      font-size: 12px;
+    }
+
+    .social ul {
+      flex-wrap: wrap;
+      gap: var(--space-xs);
     }
 
     .social ul li a {
-      font-size: 14px;
+      font-size: 12px;
+      padding: var(--space-sm) var(--space-md);
     }
   }
 </style>

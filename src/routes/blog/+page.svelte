@@ -9,108 +9,146 @@
 </svelte:head>
 
 <section>
-  <h1>Tech Blog</h1>
-  <p>Welcome to my tech blog where I share insights and tutorials on various topics.</p>
+  <h1>Blog</h1>
+  <p>Insights and tutorials on various topics.</p>
 </section>
 
 <ul class="articles">
   {#each posts as post}
     <li>
-      <div class="item">
-        <a href={`/blog/${post.slug}`}>
+      <a href={`/blog/${post.slug}`} class="item">
+        <div class="item-header">
           <h3>{post.title}</h3>
-          <p>{post.date}</p>
-          <ul class="tags">
-            {#each post.tags as tag}
-              <li>{tag}</li>
-            {/each}
-          </ul>
-        </a>
-      </div>
+          <span class="arrow">&#8594;</span>
+        </div>
+        <p class="date">{post.date}</p>
+        <ul class="tags">
+          {#each post.tags as tag}
+            <li>{tag}</li>
+          {/each}
+        </ul>
+      </a>
     </li>
   {/each}
 </ul>
 
 <style>
   section {
-    margin-bottom: 24px;
-    text-align: center;
+    margin-bottom: var(--space-2xl);
+  }
+
+  section h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  section p {
+    color: var(--text-muted);
+    font-size: 14px;
   }
 
   ul.articles {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: var(--space-sm);
   }
 
   .item {
-    padding: 12px 32px 18px 32px;
-    border-radius: 12px;
-    background-color: #2b2b2b;
+    display: block;
+    padding: var(--space-lg) var(--space-xl);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--glass-border);
+    background: transparent;
+    transition: background var(--transition-base), border-color var(--transition-base);
   }
 
   .item:hover {
-    background-color: #444444;
+    background: var(--surface);
+    border-color: rgba(255, 255, 255, 0.12);
   }
 
-  .item > a > h3 {
+  .item-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    font-size: 20px;
+    margin-bottom: var(--space-xs);
   }
 
-  .item > a > p {
+  .item-header h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-primary);
+    transition: color var(--transition-base);
+  }
+
+  .item-header .arrow {
+    color: var(--text-muted);
+    font-size: 16px;
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: opacity var(--transition-base), transform var(--transition-base);
+  }
+
+  .item:hover .item-header .arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .date {
     font-size: 12px;
-    color: #bbb;
+    color: var(--text-muted);
+    margin-bottom: var(--space-sm);
   }
 
   ul.tags {
     width: 100%;
     display: flex;
-    margin-top: 6px;
-    gap: 6px;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
   }
 
   ul.tags > li {
-    font-size: 14px;
-    font-weight: bold;
-    color: var(--bg-color);
-    background-color: var(--bm-color);
-    padding: 2px 8px;
-    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-muted);
+    padding: 2px var(--space-sm);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
   }
 
   @media (max-width: 768px) {
     section {
-      margin-bottom: 16px;
+      margin-bottom: var(--space-xl);
+    }
+
+    section h1 {
+      font-size: 24px;
+    }
+
+    section p {
+      font-size: 13px;
     }
 
     ul.articles {
-      gap: 8px;
+      gap: var(--space-sm);
     }
 
     .item {
-      padding: 6px 16px 9px 16px;
-      border-radius: 8px;
+      padding: var(--space-md) var(--space-lg);
     }
 
-    .item > a > h3 {
-      font-size: 18px;
+    .item-header h3 {
+      font-size: 15px;
     }
 
-    .item > a > p {
-      font-size: 12px;
-    }
-
-    ul.tags {
-      margin-top: 6px;
-      gap: 6px;
+    .date {
+      font-size: 11px;
     }
 
     ul.tags > li {
-      font-size: 12px;
-      padding: 2px 6px;
-      border-radius: 4px;
+      font-size: 10px;
     }
   }
 </style>

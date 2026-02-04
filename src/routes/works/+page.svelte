@@ -44,110 +44,165 @@
 </svelte:head>
 
 <section>
-  <h1>My Works</h1>
-  <p>Here are some of the projects I've worked on:</p>
+  <h1>Works</h1>
+  <p>Projects I've worked on.</p>
 </section>
 
 <div class="container">
   {#each items as item}
-    <div class="item">
+    <a
+      href={item.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="item">
+      <div class="thumbnail">
+        <img src={item.img} alt={item.title}>
+      </div>
       <div class="desc">
-        <h2>{item.title}</h2>
+        <h2>{item.title}<span class="arrow">&#8599;</span></h2>
         <p>{item.description}</p>
       </div>
-      <a
-        href={item.link}
-        target="_blank"
-        rel="noopener noreferrer">
-        <img src={item.img} alt="">
-      </a>
-    </div>
+    </a>
   {/each}
 </div>
 
 <style>
   section {
-    margin-bottom: 24px;
-    text-align: center;
+    margin-bottom: var(--space-2xl);
+  }
+
+  section h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+  }
+
+  section p {
+    color: var(--text-muted);
+    font-size: 14px;
   }
 
   .container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 300px;
-    gap: 12px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 280px;
+    gap: var(--space-md);
   }
 
   .item {
-    background-color: var(--bm-color);
-    border-radius: 12px;
-    padding: 12px 16px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 6px;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--surface);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: border-color var(--transition-base), transform var(--transition-base);
   }
 
-  .item > .desc > h2 {
-    color: var(--bg-color);
+  .item:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
   }
 
-  .item > .desc > p {
-    color: var(--bg-color);
-  }
-
-  .item > a {
-    display: block;
-    width: 100%;
-    height: 100%;
+  .thumbnail {
+    flex: 1;
     overflow: hidden;
   }
 
-  .item > a > img {
+  .thumbnail img {
     display: block;
     width: 100%;
     height: 100%;
-    background-color: var(--bg-color);
     object-fit: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    transition: transform var(--transition-slow), opacity var(--transition-base);
   }
 
-  .item > a > img:hover {
-    transform: scale(1.1);
-    transition: transform 0.5s ease;
+  .item:hover .thumbnail img {
+    transform: scale(1.03);
+    opacity: 0.85;
+  }
+
+  .desc {
+    padding: var(--space-lg);
+    border-top: 1px solid var(--glass-border);
+  }
+
+  .desc h2 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .desc h2 .arrow {
+    font-size: 13px;
+    color: var(--text-muted);
+    opacity: 0;
+    transform: translate(-4px, 4px);
+    transition: opacity var(--transition-base), transform var(--transition-base);
+  }
+
+  .item:hover .desc h2 .arrow {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  .desc p {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.5;
   }
 
   @media (max-width: 1024px) {
     .container {
       grid-template-columns: repeat(2, 1fr);
       grid-auto-rows: 260px;
-      gap: 10px;
+    }
+
+    section h1 {
+      font-size: 24px;
     }
   }
 
   @media (max-width: 768px) {
     section {
-      margin-bottom: 16px;
+      margin-bottom: var(--space-xl);
+    }
+
+    section h1 {
+      font-size: 22px;
+    }
+
+    section p {
+      font-size: 13px;
     }
 
     .container {
-      grid-template-columns: repeat(1, 1fr);
-      grid-auto-rows: 220px;
-      gap: 8px;
+      grid-template-columns: 1fr;
+      grid-auto-rows: 240px;
+      gap: var(--space-md);
     }
 
     .item {
-      padding: 8px 12px;
-      border-radius: 8px;
+      border-radius: var(--radius-md);
     }
 
-    .item > .desc > h2 {
-      font-size: 20px;
+    .desc {
+      padding: var(--space-md);
     }
 
-    .item > .desc > p {
+    .desc h2 {
       font-size: 14px;
+    }
+
+    .desc p {
+      font-size: 11px;
     }
   }
 </style>
