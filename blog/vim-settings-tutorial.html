@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="../favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#0d0d0d" />
+		<meta property="og:locale" content="ja_JP" />
+		<meta property="og:site_name" content="Broccolingual" />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/ce978adcad.js" crossorigin="anonymous"></script>
+		
+		<link href="../_app/immutable/assets/0.M9E3Yugz.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/5.BTwAIaKq.css" rel="stylesheet">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.ChTFg-na.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/DaCyjytu.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/CbBoUQCS.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.z0dExiFz.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/C1FmrZbK.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/kYvfyVYY.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/0.2Ii1XYrB.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/D6YF6ztN.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/Dr6zAnbf.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/5.euoValLR.js"><title>Vimをちょっとだけ使いやすくする設定【Vim】 | Broccolingual</title><!-- HEAD_svelte-1ynm93m_START --><meta name="description" content="Vimをちょっとだけ使いやすくする設定【Vim】 - broccolingual's tech blog"><link rel="canonical" href="https://www.broccolingual.com/blog/vim-settings-tutorial"><meta property="og:type" content="article"><meta property="og:title" content="Vimをちょっとだけ使いやすくする設定【Vim】 | Broccolingual"><meta property="og:description" content="Vimをちょっとだけ使いやすくする設定【Vim】 - broccolingual's tech blog"><meta property="og:url" content="https://www.broccolingual.com/blog/vim-settings-tutorial"><meta property="og:image" content="https://www.broccolingual.com/favicon.png"><meta property="article:published_time" content="2024-11-08"><meta property="article:tag" content="Vim"><meta property="article:tag" content="Linux"><meta property="article:tag" content="vimrc"><meta property="article:tag" content="エディタ"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Vimをちょっとだけ使いやすくする設定【Vim】 | Broccolingual"><meta name="twitter:description" content="Vimをちょっとだけ使いやすくする設定【Vim】 - broccolingual's tech blog"><meta name="twitter:image" content="https://www.broccolingual.com/favicon.png"><!-- HTML_TAG_START --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Vimをちょっとだけ使いやすくする設定【Vim】","datePublished":"2024-11-08","description":"Vimをちょっとだけ使いやすくする設定【Vim】 - broccolingual's tech blog","url":"https://www.broccolingual.com/blog/vim-settings-tutorial","author":{"@type":"Person","name":"Broccolingual","url":"https://www.broccolingual.com"},"keywords":"Vim, Linux, vimrc, エディタ"}</script><!-- HTML_TAG_END --><!-- HEAD_svelte-1ynm93m_END -->
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">  <main class="svelte-1g3fo8h"><div class="container svelte-1g3fo8h"><nav class="svelte-1g3fo8h"><ul class="svelte-1g3fo8h"><li class=" svelte-1g3fo8h"><a href="/" class="svelte-1g3fo8h"><span class="label">Profile</span> <span class="line svelte-1g3fo8h"></span></a> </li><li class=" svelte-1g3fo8h"><a href="/works" class="svelte-1g3fo8h"><span class="label">Works</span> <span class="line svelte-1g3fo8h"></span></a> </li><li class=" svelte-1g3fo8h"><a href="/blog" class="svelte-1g3fo8h"><span class="label">Blog</span> <span class="line svelte-1g3fo8h"></span></a> </li></ul></nav> <div class="content-wrapper svelte-1g3fo8h"><div class="content svelte-1g3fo8h"> <a class="go-back svelte-1xpht01" href="/blog" data-svelte-h="svelte-uvh6gb"><span class="arrow svelte-1xpht01">←</span> <span>Back</span></a> <article class="svelte-1xpht01"><div class="meta svelte-1xpht01"><h1 class="svelte-1xpht01">Vimをちょっとだけ使いやすくする設定【Vim】</h1> <p class="svelte-1xpht01">2024-11-08</p> <ul class="tags svelte-1xpht01"><li class="svelte-1xpht01">Vim</li><li class="svelte-1xpht01">Linux</li><li class="svelte-1xpht01">vimrc</li><li class="svelte-1xpht01">エディタ</li></ul></div> <div class="article-content svelte-1xpht01"><p data-svelte-h="svelte-n3rv35">この記事はQiitaに投稿した<a href="https://qiita.com/Broccolingual/items/8facc5f36564b987807f" rel="nofollow">記事</a>の転載です</p> <h1 data-svelte-h="svelte-1f33nh3">はじめに</h1> <p data-svelte-h="svelte-uaukg8">皆さんは開発する際のエディタとして何を使っているだろうか?
+最近は言語を問わず<code>VSCode</code>という方も多いと思うが，CLI環境のLinuxでの開発となると話は変わってくる．
+だいたい，派閥としては<code>vi(vim)</code>, <code>emacs</code>, <code>nano</code>等があげられるが，その中でも比較的簡単にカスタマイズしやすく拡張性もあるのが，<code>vim</code>である．<code>vim</code>というと操作が独特で拒否感を持っている方も一定数いると思うが，自分好みに魔改造することで，ほぼVSCode並のエディタにすることも可能である．今回は，そんな拒否感を持っている方のためにも使いやすいように軽くカスタマイズを試みようと思う．</p> <p data-svelte-h="svelte-ap910z">※本当にVSCode並に魔改造したい人は↓</p> <p data-svelte-h="svelte-qvxot0"><a href="https://qiita.com/ulwlu/items/98901f4c4f0683e7aa57" rel="nofollow">vimって極めればvscode並のIDEになるんじゃないの？</a></p> <h1 data-svelte-h="svelte-f2z7ki"><code>.vimrc</code>の編集</h1> <p data-svelte-h="svelte-14f5kl4">vimの設定を変更するためには，ホームディレクトリに<code>.vimrc</code>ファイルを作成し，vim専用の言語で設定を行う必要がある．</p> <pre class="language-vim" data-svelte-h="svelte-6algwz"><code><span class="token keyword">set</span> <span class="token keyword">number</span> <span class="token comment">&quot; 行番号の追加</span>
+<span class="token keyword">set</span> <span class="token builtin">cursorline</span> <span class="token comment">&quot; 編集中の行をハイライト</span>
+<span class="token keyword">set</span> <span class="token builtin">ruler</span> <span class="token comment">&quot; 右下にカーソルの位置を表示</span>
+<span class="token keyword">set</span> <span class="token builtin">showcmd</span> <span class="token comment">&quot; 入力中のコマンドを表示</span>
+<span class="token keyword">set</span> <span class="token builtin">title</span> <span class="token comment">&quot; タイトルの追加</span>
+<span class="token builtin">syntax</span> enable <span class="token comment">&quot; シンタックスハイライトを有効化</span>
+<span class="token keyword">set</span> <span class="token builtin">wildmenu</span> <span class="token comment">&quot; vim上からファイルを選択できる機能を有効化</span>
+<span class="token keyword">set</span> <span class="token builtin">ambiwidth</span><span class="token operator">=</span>double <span class="token comment">&quot; 全角文字の重なりを解消</span>
+<span class="token keyword">set</span> <span class="token builtin">backspace</span><span class="token operator">=</span>indent<span class="token punctuation">,</span><span class="token builtin">eol</span><span class="token punctuation">,</span>start <span class="token comment">&quot; 挿入モードでbackspaceを使って削除を可能に</span>
+<span class="token keyword">set</span> <span class="token builtin">laststatus</span><span class="token operator">=</span><span class="token number">2</span> <span class="token comment">&quot; ステータスバーを2行表示</span>
+<span class="token keyword">set</span> <span class="token keyword">history</span><span class="token operator">=</span><span class="token number">1000</span> <span class="token comment">&quot; コマンドの履歴を1000件保存</span>
+<span class="token keyword">set</span> <span class="token builtin">showmatch</span> <span class="token comment">&quot; 対応する括弧をハイライト</span>
+<span class="token keyword">set</span> <span class="token builtin">smartindent</span> <span class="token comment">&quot; 前の行のインデントを保持</span>
+<span class="token keyword">set</span> <span class="token builtin">clipboard</span><span class="token operator">+=</span>unnamed <span class="token comment">&quot; ヤンクの結果をクリップボードに保存</span>
+<span class="token keyword">set</span> <span class="token builtin">noerrorbells</span> <span class="token comment">&quot; エラーの表示時にビープ音を鳴らさない</span>
+<span class="token keyword">set</span> <span class="token builtin">mouse</span><span class="token operator">=</span>a <span class="token comment">&quot; マウスの有効化</span>
+
+<span class="token keyword">set</span> <span class="token builtin">shiftwidth</span><span class="token operator">=</span><span class="token number">0</span> <span class="token comment">&quot; タブの設定(タブ幅4の場合)</span>
+<span class="token keyword">set</span> <span class="token builtin">softtabstop</span><span class="token operator">=</span><span class="token number">4</span>
+<span class="token keyword">set</span> <span class="token builtin">tabstop</span><span class="token operator">=</span><span class="token number">4</span>
+
+<span class="token builtin">autocmd</span> FileType <span class="token keyword">python</span> <span class="token keyword">setlocal</span> <span class="token builtin">tabstop</span><span class="token operator">=</span><span class="token number">4</span> <span class="token comment">&quot; 言語ごとにタブ幅を設定する場合</span>
+
+<span class="token keyword">set</span> <span class="token builtin">hlsearch</span> <span class="token comment">&quot; 検索結果をハイライト</span>
+<span class="token keyword">set</span> <span class="token builtin">incsearch</span> <span class="token comment">&quot; 最初の一文字を入力した時点から検索開始</span>
+<span class="token keyword">set</span> <span class="token builtin">wrapscan</span> <span class="token comment">&quot; ファイル末尾に到達すると再び先頭から検索</span></code></pre> <h1 data-svelte-h="svelte-yjm9sq">dein.vim(プラグイン)のインストール ※さらに改造したい人向け</h1> <h3 data-svelte-h="svelte-1un54nl">ホームディレクトリにdein用のディレクトリを作成し，作業ディレクトリを移動</h3> <pre class="language-terminal" data-svelte-h="svelte-1xurp8l"><code>mkdir -p ~/.cache/dein &amp;&amp; cd $_</code></pre> <h3 data-svelte-h="svelte-361n4y">curlでインストール用のShellScriptをダウンロード</h3> <pre class="language-terminal" data-svelte-h="svelte-1aykfo3"><code>curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh &gt; installer.sh</code></pre> <h3 data-svelte-h="svelte-8nn7ra">インストール実行</h3> <pre class="language-terminal" data-svelte-h="svelte-1gbuhuo"><code>sh ./installer.sh ~/.cache/dein</code></pre> <h3 data-svelte-h="svelte-1xblhhw">出力されたコードを<code>~/.vimrc</code>に追記</h3> <pre class="language-vim" data-svelte-h="svelte-fi9osh"><code><span class="token comment">&quot;dein Scripts-----------------------------</span>
+
+<span class="token keyword">if</span> &amp;<span class="token builtin">compatible</span>
+  <span class="token keyword">set</span> <span class="token builtin">nocompatible</span>               <span class="token comment">&quot; Be iMproved</span>
+<span class="token keyword">endif</span>
+
+<span class="token comment">&quot; ~ 中略 ~</span>
+
+<span class="token keyword">if</span> dein#<span class="token function">check_install</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">&quot; ここの3行がコメントアウトされている場合は外す</span>
+  <span class="token keyword">call</span> dein#<span class="token function">install</span><span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment">&quot; ※外さないとdeinに追加したプラグインがインストールされません</span>
+<span class="token keyword">endif</span>
+
+<span class="token comment">&quot;End dein Scripts-------------------------</span></code></pre> <p data-svelte-h="svelte-1nobml5">※dein.vim(GitHub) - <a href="https://github.com/Shougo/dein.vim" rel="nofollow">https://github.com/Shougo/dein.vim</a></p> <h1 data-svelte-h="svelte-1lql88q">プラグインの追加方法</h1> <p data-svelte-h="svelte-14gnoqq">上記のdeinの導入時に.vimrcに貼り付けたスクリプトに追記してプラグインを追加</p> <pre class="language-vim" data-svelte-h="svelte-1vn2oim"><code><span class="token comment">&quot; ~ 略 ~</span>
+
+<span class="token comment">&quot; Add or remove your plugins here:</span>
+<span class="token comment">&quot;call dein#add(</span><span class="token string">&#39;Shougo/neosnippet.vim&#39;</span><span class="token punctuation">)</span>
+<span class="token comment">&quot;call dein#add(</span><span class="token string">&#39;Shougo/neosnippet-snippets&#39;</span><span class="token punctuation">)</span>
+
+<span class="token comment">&quot; ~ ここに追記 ~</span>
+
+<span class="token comment">&quot; Required:</span>
+<span class="token keyword">call</span> dein#<span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">&quot; ~ 略 ~</span></code></pre> <h1 data-svelte-h="svelte-1eem0er">テーマの追加(プラグイン導入例)</h1> <p data-svelte-h="svelte-17pucan">今回は，例としてdeinにayuとlightlineというテーマプラグインを導入する．</p> <pre class="language-vim" data-svelte-h="svelte-1cspe7i"><code><span class="token comment">&quot; ~ 略 ~</span>
+
+<span class="token comment">&quot; Add or remove your plugins here:</span>
+<span class="token comment">&quot;call dein#add(</span><span class="token string">&#39;Shougo/neosnippet.vim&#39;</span><span class="token punctuation">)</span>
+<span class="token comment">&quot;call dein#add(</span><span class="token string">&#39;Shougo/neosnippet-snippets&#39;</span><span class="token punctuation">)</span>
+
+<span class="token comment">&quot; ~ 追加行 ここから ~</span>
+ <span class="token keyword">call</span> dein#<span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&#39;ayu-theme/ayu-vim&#39;</span><span class="token punctuation">)</span>
+ <span class="token keyword">call</span> dein#<span class="token function">add</span><span class="token punctuation">(</span><span class="token string">&#39;itchyny/lightline.vim&#39;</span><span class="token punctuation">)</span>
+<span class="token comment">&quot; ~ 追加行 ここまで ~</span>
+
+<span class="token comment">&quot; Required:</span>
+<span class="token keyword">call</span> dein#<span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment">&quot; ~ 中略 ~</span>
+
+<span class="token comment">&quot;End dein Scripts-------------------------</span>
+
+<span class="token comment">&quot; ~ 追加行 ここから (ayu-themeの設定) ~</span>
+<span class="token keyword">set</span> termguicolors     <span class="token comment">&quot; enable true colors support</span>
+<span class="token string">&quot;let ayucolor=&quot;</span>light<span class="token string">&quot;  &quot;</span> <span class="token keyword">for</span> light <span class="token keyword">version</span> of theme
+<span class="token string">&quot;let ayucolor=&quot;</span>mirage<span class="token string">&quot; &quot;</span> <span class="token keyword">for</span> mirage <span class="token keyword">version</span> of theme
+<span class="token keyword">let</span> ayucolor<span class="token operator">=</span><span class="token string">&quot;dark&quot;</span>   <span class="token comment">&quot; for dark version of theme</span>
+<span class="token keyword">colorscheme</span> ayu
+<span class="token comment">&quot; ~ 追加行 ここまで ~</span>
+
+<span class="token comment">&quot; ~ 略 ~</span></code></pre> <p data-svelte-h="svelte-1196li7">上記の通り.vimrcに追記してvimを起動すると，自動的に必要なものがダウンロードされ，テーマが適用された状態でvimが開く．</p> <p data-svelte-h="svelte-18bp1n5">※ayu-theme/ayu-vim(GitHub) - <a href="https://github.com/ayu-theme/ayu-vim" rel="nofollow">https://github.com/ayu-theme/ayu-vim</a></p> <p data-svelte-h="svelte-1ms59la">※itchyny/lightline.vim(GitHub) - <a href="https://github.com/itchyny/lightline.vim" rel="nofollow">https://github.com/itchyny/lightline.vim</a></p></div> </article></div></div></div> </main> 
+			
+			<script>
+				{
+					__sveltekit_1cbacev = {
+						base: new URL("..", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("../_app/immutable/entry/start.ChTFg-na.js"),
+						import("../_app/immutable/entry/app.z0dExiFz.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 5],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>

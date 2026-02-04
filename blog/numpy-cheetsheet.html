@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="../favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#0d0d0d" />
+		<meta property="og:locale" content="ja_JP" />
+		<meta property="og:site_name" content="Broccolingual" />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/ce978adcad.js" crossorigin="anonymous"></script>
+		
+		<link href="../_app/immutable/assets/0.M9E3Yugz.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/5.BTwAIaKq.css" rel="stylesheet">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.ChTFg-na.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/DaCyjytu.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/CbBoUQCS.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.z0dExiFz.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/C1FmrZbK.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/kYvfyVYY.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/0.2Ii1XYrB.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/D6YF6ztN.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/Dr6zAnbf.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/5.euoValLR.js"><title>あなたの知らない(かもしれない)numpyライフハックの世界 | Broccolingual</title><!-- HEAD_svelte-1ynm93m_START --><meta name="description" content="あなたの知らない(かもしれない)numpyライフハックの世界 - broccolingual's tech blog"><link rel="canonical" href="https://www.broccolingual.com/blog/numpy-cheetsheet"><meta property="og:type" content="article"><meta property="og:title" content="あなたの知らない(かもしれない)numpyライフハックの世界 | Broccolingual"><meta property="og:description" content="あなたの知らない(かもしれない)numpyライフハックの世界 - broccolingual's tech blog"><meta property="og:url" content="https://www.broccolingual.com/blog/numpy-cheetsheet"><meta property="og:image" content="https://www.broccolingual.com/favicon.png"><meta property="article:published_time" content="2023-10-20"><meta property="article:tag" content="Python"><meta property="article:tag" content="numpy"><meta property="article:tag" content="初心者"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="あなたの知らない(かもしれない)numpyライフハックの世界 | Broccolingual"><meta name="twitter:description" content="あなたの知らない(かもしれない)numpyライフハックの世界 - broccolingual's tech blog"><meta name="twitter:image" content="https://www.broccolingual.com/favicon.png"><!-- HTML_TAG_START --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"あなたの知らない(かもしれない)numpyライフハックの世界","datePublished":"2023-10-20","description":"あなたの知らない(かもしれない)numpyライフハックの世界 - broccolingual's tech blog","url":"https://www.broccolingual.com/blog/numpy-cheetsheet","author":{"@type":"Person","name":"Broccolingual","url":"https://www.broccolingual.com"},"keywords":"Python, numpy, 初心者"}</script><!-- HTML_TAG_END --><!-- HEAD_svelte-1ynm93m_END -->
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">  <main class="svelte-1g3fo8h"><div class="container svelte-1g3fo8h"><nav class="svelte-1g3fo8h"><ul class="svelte-1g3fo8h"><li class=" svelte-1g3fo8h"><a href="/" class="svelte-1g3fo8h"><span class="label">Profile</span> <span class="line svelte-1g3fo8h"></span></a> </li><li class=" svelte-1g3fo8h"><a href="/works" class="svelte-1g3fo8h"><span class="label">Works</span> <span class="line svelte-1g3fo8h"></span></a> </li><li class=" svelte-1g3fo8h"><a href="/blog" class="svelte-1g3fo8h"><span class="label">Blog</span> <span class="line svelte-1g3fo8h"></span></a> </li></ul></nav> <div class="content-wrapper svelte-1g3fo8h"><div class="content svelte-1g3fo8h"> <a class="go-back svelte-1xpht01" href="/blog" data-svelte-h="svelte-uvh6gb"><span class="arrow svelte-1xpht01">←</span> <span>Back</span></a> <article class="svelte-1xpht01"><div class="meta svelte-1xpht01"><h1 class="svelte-1xpht01">あなたの知らない(かもしれない)numpyライフハックの世界</h1> <p class="svelte-1xpht01">2023-10-20</p> <ul class="tags svelte-1xpht01"><li class="svelte-1xpht01">Python</li><li class="svelte-1xpht01">numpy</li><li class="svelte-1xpht01">初心者</li></ul></div> <div class="article-content svelte-1xpht01"><p data-svelte-h="svelte-1eyfmnz">この記事はQiitaに投稿した<a href="https://qiita.com/Broccolingual/items/863bcf79f0212fefd500" rel="nofollow">記事</a>の転載です</p> <h1 data-svelte-h="svelte-1f33nh3">はじめに</h1> <p data-svelte-h="svelte-un2k8d">全世界80億のnumpyユーザーの皆さんこんにちは。この記事ではnumpyを扱い始めたばかり、もしくは今までなんとなくnumpyを使い続けてきた人向けにnumpyの痒い所に手が届く機能をご紹介します。</p> <h1 data-svelte-h="svelte-177eyka">単位行列</h1> <pre class="language-py" data-svelte-h="svelte-nhlx2o"><code>M <span class="token operator">=</span> np<span class="token punctuation">.</span>eye<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token comment"># 3 x 3の単位行列を生成</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>M<span class="token punctuation">)</span></code></pre> <pre class="language-terminal:実行結果" data-svelte-h="svelte-y1puzh"><code>[[1. 0. 0.]
+ [0. 1. 0.]
+ [0. 0. 1.]]</code></pre> <h1 data-svelte-h="svelte-1uoqzzw">対角要素の取得</h1> <pre class="language-py" data-svelte-h="svelte-tkvuss"><code>M <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>M<span class="token punctuation">)</span>
+M <span class="token operator">=</span> np<span class="token punctuation">.</span>diag<span class="token punctuation">(</span>M<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>M<span class="token punctuation">)</span></code></pre> <pre class="language-terminal:実行結果" data-svelte-h="svelte-117zuwu"><code>[[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+[0 4 8]</code></pre> <h1 data-svelte-h="svelte-3af915">ゼロ以下の要素をすべて0にする</h1> <pre class="language-py" data-svelte-h="svelte-13dpeyb"><code>M <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>M<span class="token punctuation">)</span>
+M<span class="token punctuation">[</span>M <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span> <span class="token comment"># 0以下の要素を0に</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>M<span class="token punctuation">)</span></code></pre> <pre class="language-terminal:実行結果" data-svelte-h="svelte-vj8brw"><code>[-4 -3 -2 -1  0  1  2  3]
+[0 0 0 0 0 1 2 3]</code></pre> <h1 data-svelte-h="svelte-1218lfl">ゼロでない要素のインデックスの取得</h1> <pre class="language-py" data-svelte-h="svelte-134ej4f"><code>M <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>M<span class="token punctuation">)</span>
+M <span class="token operator">=</span> np<span class="token punctuation">.</span>nonzero<span class="token punctuation">(</span>M<span class="token punctuation">)</span> <span class="token comment"># ゼロでない要素のインデックスのリストを作成</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>M<span class="token punctuation">)</span></code></pre> <pre class="language-terminal:実行結果" data-svelte-h="svelte-1aiwco6"><code>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+(array([1, 2, 3, 4, 5, 6, 7, 8], dtype=int64),)</code></pre> <h1 data-svelte-h="svelte-1shj24n">条件に合致する要素のインデックスを取得</h1> <pre class="language-py" data-svelte-h="svelte-1nirjm9"><code>M <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>M<span class="token punctuation">)</span>
+M <span class="token operator">=</span> np<span class="token punctuation">.</span>where<span class="token punctuation">(</span>M <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token comment"># 0未満の要素のインデックスを取得</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>M<span class="token punctuation">)</span></code></pre> <pre class="language-terminal:実行結果" data-svelte-h="svelte-1jlbq6h"><code>[-4 -3 -2 -1  0  1  2  3]
+(array([0, 1, 2, 3], dtype=int64),)</code></pre> <h1 data-svelte-h="svelte-3iealr">配列の累積和を取得</h1> <pre class="language-py" data-svelte-h="svelte-w40uiw"><code>M <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>M<span class="token punctuation">)</span>
+M <span class="token operator">=</span> np<span class="token punctuation">.</span>cumsum<span class="token punctuation">(</span>M<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>M<span class="token punctuation">)</span></code></pre> <pre class="language-terminal:実行結果" data-svelte-h="svelte-skux9l"><code>[0 1 2 3 4 5 6 7 8]
+[ 0  1  3  6 10 15 21 28 36]</code></pre> <h1 data-svelte-h="svelte-n7w0q">既存の配列の周囲を任意の値で埋める</h1> <pre class="language-py" data-svelte-h="svelte-17v4jt5"><code>M <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>M<span class="token punctuation">)</span>
+M <span class="token operator">=</span> np<span class="token punctuation">.</span>pad<span class="token punctuation">(</span>M<span class="token punctuation">,</span> pad_width<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> mode<span class="token operator">=</span><span class="token string">&#39;constant&#39;</span><span class="token punctuation">,</span> constant_values<span class="token operator">=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token comment"># 配列Mの周囲1マスを-1で埋める</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>M<span class="token punctuation">)</span></code></pre> <pre class="language-terminal:実行結果" data-svelte-h="svelte-1v5jxwy"><code>[[0 1 2]
+ [3 4 5]
+ [6 7 8]]
+[[-1 -1 -1 -1 -1]
+ [-1  0  1  2 -1]
+ [-1  3  4  5 -1]
+ [-1  6  7  8 -1]
+ [-1 -1 -1 -1 -1]]</code></pre> <h1 data-svelte-h="svelte-1jzk93s">配列の要素を一定の範囲に収める</h1> <pre class="language-py" data-svelte-h="svelte-syvjmr"><code>M <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>M<span class="token punctuation">)</span>
+M <span class="token operator">=</span> np<span class="token punctuation">.</span>clip<span class="token punctuation">(</span>M<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token comment"># 要素を2から5の範囲に収める</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>M<span class="token punctuation">)</span></code></pre> <pre class="language-terminal:実行結果" data-svelte-h="svelte-647g6r"><code>[0 1 2 3 4 5 6 7 8]
+[2 2 2 3 4 5 5 5 5]</code></pre> <h1 data-svelte-h="svelte-45u9wm">参考記事</h1> <p data-svelte-h="svelte-1t6boj1">・<a href="https://github.com/rougier/numpy-100" rel="nofollow">100 Numpy Exercises</a>
+・<a href="https://numpy.org/ja/" rel="nofollow">NumPy日本語公式サイト</a></p></div> </article></div></div></div> </main> 
+			
+			<script>
+				{
+					__sveltekit_1cbacev = {
+						base: new URL("..", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("../_app/immutable/entry/start.ChTFg-na.js"),
+						import("../_app/immutable/entry/app.z0dExiFz.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 5],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>

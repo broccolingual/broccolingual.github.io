@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="../favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#0d0d0d" />
+		<meta property="og:locale" content="ja_JP" />
+		<meta property="og:site_name" content="Broccolingual" />
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<script src="https://kit.fontawesome.com/ce978adcad.js" crossorigin="anonymous"></script>
+		
+		<link href="../_app/immutable/assets/0.M9E3Yugz.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/5.BTwAIaKq.css" rel="stylesheet">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.ChTFg-na.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/DaCyjytu.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/CbBoUQCS.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.z0dExiFz.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/C1FmrZbK.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/kYvfyVYY.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/0.2Ii1XYrB.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/D6YF6ztN.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/Dr6zAnbf.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/5.euoValLR.js"><title>Github Actionsで始めるプログラム定期実行 | Broccolingual</title><!-- HEAD_svelte-1ynm93m_START --><meta name="description" content="Github Actionsで始めるプログラム定期実行 - broccolingual's tech blog"><link rel="canonical" href="https://www.broccolingual.com/blog/github-actions-tutorial"><meta property="og:type" content="article"><meta property="og:title" content="Github Actionsで始めるプログラム定期実行 | Broccolingual"><meta property="og:description" content="Github Actionsで始めるプログラム定期実行 - broccolingual's tech blog"><meta property="og:url" content="https://www.broccolingual.com/blog/github-actions-tutorial"><meta property="og:image" content="https://www.broccolingual.com/favicon.png"><meta property="article:published_time" content="2021-02-13"><meta property="article:tag" content="Github Actions"><meta property="article:tag" content="定期実行"><meta property="article:tag" content="初心者"><meta property="article:tag" content="GitHub"><meta property="article:tag" content="Python"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="Github Actionsで始めるプログラム定期実行 | Broccolingual"><meta name="twitter:description" content="Github Actionsで始めるプログラム定期実行 - broccolingual's tech blog"><meta name="twitter:image" content="https://www.broccolingual.com/favicon.png"><!-- HTML_TAG_START --><script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Github Actionsで始めるプログラム定期実行","datePublished":"2021-02-13","description":"Github Actionsで始めるプログラム定期実行 - broccolingual's tech blog","url":"https://www.broccolingual.com/blog/github-actions-tutorial","author":{"@type":"Person","name":"Broccolingual","url":"https://www.broccolingual.com"},"keywords":"Github Actions, 定期実行, 初心者, GitHub, Python"}</script><!-- HTML_TAG_END --><!-- HEAD_svelte-1ynm93m_END -->
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">  <main class="svelte-1g3fo8h"><div class="container svelte-1g3fo8h"><nav class="svelte-1g3fo8h"><ul class="svelte-1g3fo8h"><li class=" svelte-1g3fo8h"><a href="/" class="svelte-1g3fo8h"><span class="label">Profile</span> <span class="line svelte-1g3fo8h"></span></a> </li><li class=" svelte-1g3fo8h"><a href="/works" class="svelte-1g3fo8h"><span class="label">Works</span> <span class="line svelte-1g3fo8h"></span></a> </li><li class=" svelte-1g3fo8h"><a href="/blog" class="svelte-1g3fo8h"><span class="label">Blog</span> <span class="line svelte-1g3fo8h"></span></a> </li></ul></nav> <div class="content-wrapper svelte-1g3fo8h"><div class="content svelte-1g3fo8h"> <a class="go-back svelte-1xpht01" href="/blog" data-svelte-h="svelte-uvh6gb"><span class="arrow svelte-1xpht01">←</span> <span>Back</span></a> <article class="svelte-1xpht01"><div class="meta svelte-1xpht01"><h1 class="svelte-1xpht01">Github Actionsで始めるプログラム定期実行</h1> <p class="svelte-1xpht01">2021-02-13</p> <ul class="tags svelte-1xpht01"><li class="svelte-1xpht01">Github Actions</li><li class="svelte-1xpht01">定期実行</li><li class="svelte-1xpht01">初心者</li><li class="svelte-1xpht01">GitHub</li><li class="svelte-1xpht01">Python</li></ul></div> <div class="article-content svelte-1xpht01"><p data-svelte-h="svelte-178uflk">この記事はQiitaに投稿した<a href="https://qiita.com/Broccolingual/items/bf0fa0d00920fbfda371" rel="nofollow">記事</a>の転載です</p> <h1 data-svelte-h="svelte-1f33nh3">はじめに</h1> <p data-svelte-h="svelte-l02ary">よくプログラムの定期実行の方法として、Windowsではタスクの登録、Linuxではcronでの定期実行が紹介されるが、ローカル環境でこれらを行う場合は、もちろんPCを起動しておく必要がある。しかし、たかが1プログラムのために電気代を消費するのも勿体ないし、サーバーを借りて実行するほどでもない、といった需要に一番マッチするのがGithub Actionsである。</p> <p data-svelte-h="svelte-3e363t"><code>※この記事はGitに関しての記事ではないため、コミットやプッシュなどは理解しているものとして話を進める。</code></p> <h1 data-svelte-h="svelte-uykcgg">GitHub Actionsとは?</h1> <p data-svelte-h="svelte-1tb02jc">Github Actionsはその名の通りGitHubから提供されているワークフローを自動化するためのツールである。
+具体的には、リポジトリの<code>.github/workflows</code>の配下にYAML形式の実行制御ファイルを配置することによって利用することができる。Linuxで利用されるcronによる定期実行やレポジトリへのプッシュを検知して、ワークフローを実行することもできる。</p> <p data-svelte-h="svelte-in3zu">公式ドキュメント -&gt; <a href="https://docs.github.com/ja/actions/reference/workflow-syntax-for-github-actions" rel="nofollow">https://docs.github.com/ja/actions/reference/workflow-syntax-for-github-actions</a></p> <h1 data-svelte-h="svelte-1moa2jd">実行するトリガーとなるイベントを検知</h1> <h3 data-svelte-h="svelte-w4gtpe">リポジトリの<code>main</code>ブランチにプッシュされたときに実行</h3> <pre class="language-yaml" data-svelte-h="svelte-nvnxig"><code><span class="token key atrule">on</span><span class="token punctuation">:</span>
+  <span class="token key atrule">push</span><span class="token punctuation">:</span>
+    <span class="token key atrule">branches</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> main</code></pre> <h3 data-svelte-h="svelte-pqkj6p">時間を設定して定期実行</h3> <pre class="language-yaml" data-svelte-h="svelte-lhd6ib"><code><span class="token key atrule">on</span><span class="token punctuation">:</span>
+  <span class="token key atrule">schedule</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">cron</span><span class="token punctuation">:</span> <span class="token string">&#39;0 3 * * *&#39;</span></code></pre> <p data-svelte-h="svelte-1gkm21w"><code>※時間はUTCであることに注意が必要。上記の例では、1日に1回日本時間の12:00に実行。</code></p> <p data-svelte-h="svelte-1ghvecx">cronの時間設定については↓の記事を参照</p> <p data-svelte-h="svelte-rmmnpy"><a href="https://qiita.com/katsukii/items/d5f90a6e4592d1414f99" rel="nofollow">クーロン(cron)をさわってみるお</a></p> <h1 data-svelte-h="svelte-k7lo4r">実行する環境の設定</h1> <pre class="language-yaml" data-svelte-h="svelte-nn34ra"><code><span class="token key atrule">jobs</span><span class="token punctuation">:</span>
+  <span class="token key atrule">build</span><span class="token punctuation">:</span>
+    <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>latest</code></pre> <p data-svelte-h="svelte-wh9tb5">他にもWindows ServerやMacOSなども使用できる。利用する場合は<a href="https://docs.github.com/ja/actions/reference/workflow-syntax-for-github-actions" rel="nofollow">公式ドキュメント</a>を参照されたい。</p> <h1 data-svelte-h="svelte-1psp4j7">ワークフローの実行</h1> <p data-svelte-h="svelte-w2aacl">ここからは主にLinuxで実行したいコマンドを書いていくことになる。(Linuxのコマンドの内容については解説しない)
+今回は例としてPythonの環境を構築して、レポジトリ内の<code>main.py</code>を実行し、実行した結果をレポジトリに自動でプッシュするように設定する。</p> <pre class="language-yaml" data-svelte-h="svelte-ijbey8"><code><span class="token key atrule">name</span><span class="token punctuation">:</span> ActionsTest <span class="token comment"># GitHub Actionsにつける名前。任意で良い。</span>
+
+<span class="token key atrule">on</span><span class="token punctuation">:</span>
+  <span class="token key atrule">schedule</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">cron</span><span class="token punctuation">:</span> <span class="token string">&#39;0 3 * * *&#39;</span> <span class="token comment"># cronで定期実行</span>
+
+<span class="token key atrule">jobs</span><span class="token punctuation">:</span>
+  <span class="token key atrule">build</span><span class="token punctuation">:</span>
+    <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>latest <span class="token comment"># 最新のubuntu環境で下記のジョブを実行</span>
+    <span class="token key atrule">steps</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v2 <span class="token comment"># おまじない</span>
+      
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Setup python <span class="token comment"># ワークフローのセクションごとに設定する名前。特に設定する必要はないが、どこでエラーが起きているかを把握する為にも設定しておいた方が良い。</span>
+        <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/setup<span class="token punctuation">-</span>python@v2 <span class="token comment"># Pythonのセットアップ</span>
+        <span class="token key atrule">with</span><span class="token punctuation">:</span>
+          <span class="token key atrule">python-version</span><span class="token punctuation">:</span> <span class="token string">&quot;3.x&quot;</span> <span class="token comment"># Pythonのバージョン指定</span>
+      
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Install dependencies <span class="token comment"># Pythonの依存環境のインストール</span>
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span> <span class="token comment">#このような書き方で複数行を一気に実行することができる。</span>
+          python <span class="token punctuation">-</span>m pip install <span class="token punctuation">-</span><span class="token punctuation">-</span>upgrade pip
+          pip install pandas
+          pip install pytz
+          pip install matplotlib
+          pip install numpy
+          
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Run main.py <span class="token comment"># Pythonファイルの実行</span>
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+          python main.py</span>
+
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Commit and Push <span class="token comment"># 実行した結果をプッシュして変更をレポジトリに反映</span>
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+          git config user.name &quot;YOUR NAME&quot;
+          git config user.email &quot;YOUR MAIL&quot;
+          git add .
+          git commit -m &quot;Commit Message&quot;
+          git pull
+          git push origin master</span></code></pre> <p data-svelte-h="svelte-y58s82"><code>※最後のGitにコミットする前の名前とEmailは必須だそうだ。(この行を省いた状態でテストしていない...)</code></p> <p data-svelte-h="svelte-1sp932w">これだけで簡単にスクリプトを実行し、レポジトリに反映するスクリプトが出来る。ただし、月当たりの利用時間の制限があるので、サーバーとして運用するのは厳しいかと思われる。（無料枠では<strong>2000分/月</strong>）</p> <h1 data-svelte-h="svelte-lhevk7">その他の機能</h1> <p data-svelte-h="svelte-190z77g">上記で紹介したもののほかにも、環境変数を利用したり、特定のシェルを利用することもできる。これらの機能の詳細については、下記のドキュメントを参考にされたい。</p> <p data-svelte-h="svelte-in3zu">公式ドキュメント -&gt; <a href="https://docs.github.com/ja/actions/reference/workflow-syntax-for-github-actions" rel="nofollow">https://docs.github.com/ja/actions/reference/workflow-syntax-for-github-actions</a></p></div> </article></div></div></div> </main> 
+			
+			<script>
+				{
+					__sveltekit_1cbacev = {
+						base: new URL("..", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					Promise.all([
+						import("../_app/immutable/entry/start.ChTFg-na.js"),
+						import("../_app/immutable/entry/app.z0dExiFz.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 5],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
