@@ -10,32 +10,54 @@
       description: "Rust製のLinux向けTUIライブラリ",
       link: "https://crates.io/crates/rustui/",
       img: sc_rustui,
+      tags: ["Rust"],
     },
     {
       title: "rcc",
       description: "Rust製のCコンパイラ",
       link: "https://github.com/broccolingual/rcc/",
       img: background,
+      tags: ["Rust", "C"],
     },
     {
       title: "VHDL Test Generator",
       description: "VHDLのテストベンチを自動生成するツール",
       link: "https://github.com/broccolingual/vhdl-test-generator/",
       img: background,
+      tags: ["Golang", "VHDL"],
     },
     {
       title: "Turing Complete Guide",
       description: "Turing Completeの非公式ガイド",
       link: "https://rococo-brioche-c96086.netlify.app/",
       img: sc_turing_complete,
+      tags: ["JavaScript"],
     },
     {
       title: "Twitch Watchparty",
       description: "Twitchの配信を2窓で楽しむためのアプリ",
       link: "https://naughty-mccarthy-e6ef3c.netlify.app/",
       img: sc_twitch_watchparty,
+      tags: ["JavaScript"],
     },
   ];
+
+  let selectedTags = [];
+
+  $: allTags = [...new Set(items.flatMap(i => i.tags))];
+
+  $: filteredItems = items.filter(item => {
+    return selectedTags.length === 0 ||
+      selectedTags.every(tag => item.tags.includes(tag));
+  });
+
+  function toggleTag(tag) {
+    if (selectedTags.includes(tag)) {
+      selectedTags = selectedTags.filter(t => t !== tag);
+    } else {
+      selectedTags = [...selectedTags, tag];
+    }
+  }
 </script>
 
 <svelte:head>
@@ -46,10 +68,31 @@
 <section>
   <h1>Works</h1>
   <p>Projects I've worked on.</p>
+  <div class="stats">
+    <span class="stat">{filteredItems.length} / {items.length} projects</span>
+    <span class="stat-divider"></span>
+    <span class="stat">{allTags.length} tags</span>
+  </div>
 </section>
 
+<ul class="tag-filters">
+  {#each allTags as tag}
+    <li>
+      <button
+        class="tag-btn"
+        class:active={selectedTags.includes(tag)}
+        on:click={() => toggleTag(tag)}
+      >{tag}</button>
+    </li>
+  {/each}
+</ul>
+
+{#if filteredItems.length === 0}
+  <p class="no-results">No projects found.</p>
+{/if}
+
 <div class="container">
-  {#each items as item}
+  {#each filteredItems as item}
     <a
       href={item.link}
       target="_blank"
@@ -61,6 +104,11 @@
       <div class="desc">
         <h2>{item.title}<span class="arrow">&#8599;</span></h2>
         <p>{item.description}</p>
+        <ul class="tags">
+          {#each item.tags as tag}
+            <li>{tag}</li>
+          {/each}
+        </ul>
       </div>
     </a>
   {/each}
@@ -81,6 +129,63 @@
   section p {
     color: var(--text-muted);
     font-size: 14px;
+  }
+
+  .stats {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+  }
+
+  .stat {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 12px;
+    background: var(--glass-border);
+  }
+
+  ul.tag-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+  }
+
+  .tag-btn {
+    font-size: 11px;
+    font-weight: 400;
+    font-family: inherit;
+    color: var(--text-muted);
+    padding: 2px var(--space-sm);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    cursor: pointer;
+    transition: color var(--transition-base), border-color var(--transition-base), background var(--transition-base);
+  }
+
+  .tag-btn:hover {
+    color: var(--text-secondary);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+
+  .tag-btn.active {
+    color: var(--text-primary);
+    border-color: var(--accent);
+    background: rgba(212, 196, 168, 0.1);
+  }
+
+  .no-results {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 13px;
+    padding: var(--space-2xl) 0;
   }
 
   .container {
@@ -159,6 +264,22 @@
     line-height: 1.5;
   }
 
+  ul.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-top: var(--space-sm);
+  }
+
+  ul.tags > li {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--text-muted);
+    padding: 1px var(--space-sm);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+  }
+
   @media (max-width: 1024px) {
     .container {
       grid-template-columns: repeat(2, 1fr);
@@ -181,6 +302,22 @@
 
     section p {
       font-size: 13px;
+    }
+
+    .stat {
+      font-size: 11px;
+    }
+
+    ul.tag-filters {
+      margin-bottom: var(--space-lg);
+    }
+
+    .tag-btn {
+      font-size: 10px;
+    }
+
+    .no-results {
+      font-size: 12px;
     }
 
     .container {
