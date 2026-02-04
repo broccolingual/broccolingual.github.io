@@ -74,7 +74,7 @@
 
   .home-link:hover {
     color: var(--text-primary);
-    border-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
     transform: translateX(-2px);
   }
 

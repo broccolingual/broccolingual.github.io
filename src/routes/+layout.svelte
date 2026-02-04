@@ -42,18 +42,18 @@
   }
 
   :global(:root) {
-    --bg: #0a0a0a;
-    --surface: rgba(14, 14, 14, 0.75);
-    --surface-solid: #0e0e0e;
-    --surface-hover: rgba(20, 20, 20, 0.8);
-    --glass: rgba(10, 10, 10, 0.65);
-    --glass-border: rgba(255, 255, 255, 0.06);
-    --text-primary: #e0e0e0;
-    --text-secondary: #999;
-    --text-muted: #5a5a5a;
-    --accent: #c8b8a0;
-    --border-color: rgba(255, 255, 255, 0.08);
-    --border-subtle: rgba(255, 255, 255, 0.04);
+    --bg: #0d0d0d;
+    --surface: rgba(18, 18, 18, 0.8);
+    --surface-solid: #121212;
+    --surface-hover: rgba(26, 26, 26, 0.85);
+    --glass: rgba(14, 14, 14, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-primary: #f0f0f0;
+    --text-secondary: #b0b0b0;
+    --text-muted: #787878;
+    --accent: #d4c4a8;
+    --border-color: rgba(255, 255, 255, 0.12);
+    --border-subtle: rgba(255, 255, 255, 0.06);
 
     --space-xs: 4px;
     --space-sm: 8px;
@@ -87,7 +87,7 @@
     background-position: center;
     background-repeat: no-repeat;
     z-index: -10;
-    filter: blur(4px) brightness(0.35) saturate(0.6);
+    filter: blur(4px) brightness(0.45) saturate(0.65);
     transform: scale(1.03);
     pointer-events: none;
   }
@@ -115,7 +115,7 @@
   }
 
   :global(::selection) {
-    background: rgba(200, 184, 160, 0.2);
+    background: rgba(212, 196, 168, 0.25);
     color: var(--text-primary);
   }
 

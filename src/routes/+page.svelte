@@ -14,6 +14,7 @@
     </div>
     <div class="info">
       <h1>Broccolingual</h1>
+      <p class="bio">No curiosity, No life.</p>
       <div class="meta">
         <p>
           <span class="material-icons">location_on</span>Osaka, Japan
@@ -39,6 +40,17 @@
       <h3>Tools / Services</h3>
       <p>Git, Docker, Supabase, Heroku, Firebase, Github Actions</p>
     </div>
+  </div>
+
+  <div class="interests">
+    <h3>Interests</h3>
+    <ul>
+      <li>ランニング</li>
+      <li>UKロック</li>
+      <li>自作キーボード</li>
+      <li>旅行</li>
+      <li>ストラテジーゲーム</li>
+    </ul>
   </div>
 
   <div class="social">
@@ -116,8 +128,15 @@
     font-size: 36px;
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
     letter-spacing: -0.02em;
+  }
+
+  .info .bio {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
   }
 
   .meta p {
@@ -148,7 +167,7 @@
   }
 
   .skills:hover {
-    border-color: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.18);
   }
 
   .divider {
@@ -173,6 +192,42 @@
     line-height: 1.6;
   }
 
+  .interests {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  .interests h3 {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .interests ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-sm);
+  }
+
+  .interests ul li {
+    font-size: 12px;
+    color: var(--text-secondary);
+    padding: var(--space-xs) var(--space-md);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    transition: border-color var(--transition-base), color var(--transition-base);
+  }
+
+  .interests ul li:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+  }
+
   .social ul {
     display: flex;
     justify-content: center;
@@ -193,7 +248,7 @@
 
   .social ul li a:hover {
     color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.08);
   }
 
   .social ul li a i {
@@ -209,12 +264,12 @@
     background-size: contain;
     background-repeat: no-repeat;
     vertical-align: middle;
-    opacity: 0.5;
+    opacity: 0.65;
     transition: opacity var(--transition-base);
   }
 
   .social ul li a:hover i.icon-qiita::before {
-    opacity: 0.85;
+    opacity: 1;
   }
 
   @media (max-width: 768px) {
@@ -264,6 +319,15 @@
 
     .skill-group p {
       font-size: 12px;
+    }
+
+    .info .bio {
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .interests ul li {
+      font-size: 11px;
     }
 
     .social ul {
