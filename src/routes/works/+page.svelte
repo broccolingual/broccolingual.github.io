@@ -62,7 +62,17 @@
 
 <svelte:head>
   <title>Broccolingual | Works</title>
-  <meta name="description" content="Broccolingual's works" />
+  <meta name="description" content="broccolingual's works" />
+  <link rel="canonical" href="https://www.broccolingual.com/works" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Broccolingual | Works" />
+  <meta property="og:description" content="broccolingual's works" />
+  <meta property="og:url" content="https://www.broccolingual.com/works" />
+  <meta property="og:image" content="https://www.broccolingual.com/favicon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Broccolingual | Works" />
+  <meta name="twitter:description" content="broccolingual's works" />
+  <meta name="twitter:image" content="https://www.broccolingual.com/favicon.png" />
 </svelte:head>
 
 <section>

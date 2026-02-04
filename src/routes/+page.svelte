@@ -4,7 +4,29 @@
 
 <svelte:head>
   <title>Broccolingual | Profile</title>
-  <meta name="description" content="Broccolingual's profile page" />
+  <meta name="description" content="broccolingual's portfolio & tech blog" />
+  <link rel="canonical" href="https://www.broccolingual.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Broccolingual | Profile" />
+  <meta property="og:description" content="broccolingual's portfolio & tech blog" />
+  <meta property="og:url" content="https://www.broccolingual.com/" />
+  <meta property="og:image" content="https://www.broccolingual.com/favicon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Broccolingual | Profile" />
+  <meta name="twitter:description" content="broccolingual's portfolio & tech blog" />
+  <meta name="twitter:image" content="https://www.broccolingual.com/favicon.png" />
+  {@html `<script type="application/ld+json">${JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Broccolingual",
+    "url": "https://www.broccolingual.com",
+    "jobTitle": "Graduate Student",
+    "address": { "@type": "PostalAddress", "addressLocality": "Osaka", "addressCountry": "JP" },
+    "sameAs": [
+      "https://github.com/broccolingual",
+      "https://qiita.com/Broccolingual"
+    ]
+  })}</script>`}
 </svelte:head>
 
 <div class="container">
@@ -55,6 +77,11 @@
 
   <div class="social">
     <ul>
+      <li>
+        <a href="mailto:broccolingual@gmail.com"
+          ><i class="fas fa-envelope"></i><span>Mail</span></a
+        >
+      </li>
       <li>
         <a
           href="https://github.com/broccolingual"

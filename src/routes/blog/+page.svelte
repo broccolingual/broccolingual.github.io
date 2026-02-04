@@ -27,7 +27,17 @@
 
 <svelte:head>
   <title>Broccolingual | Blog</title>
-  <meta name="description" content="Broccolingual's tech blog" />
+  <meta name="description" content="broccolingual's tech blog" />
+  <link rel="canonical" href="https://www.broccolingual.com/blog" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Broccolingual | Blog" />
+  <meta property="og:description" content="broccolingual's tech blog" />
+  <meta property="og:url" content="https://www.broccolingual.com/blog" />
+  <meta property="og:image" content="https://www.broccolingual.com/favicon.png" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Broccolingual | Blog" />
+  <meta name="twitter:description" content="broccolingual's tech blog" />
+  <meta name="twitter:image" content="https://www.broccolingual.com/favicon.png" />
 </svelte:head>
 
 <section>

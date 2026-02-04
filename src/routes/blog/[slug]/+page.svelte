@@ -1,7 +1,44 @@
 <script>
+  import { page } from '$app/stores';
   export let data
   const { Content, meta } = data
+  $: slug = $page.params.slug;
+  $: pageUrl = `https://www.broccolingual.com/blog/${slug}`;
+  $: description = meta.description || `${meta.title} - broccolingual's tech blog`;
 </script>
+
+<svelte:head>
+  <title>{meta.title} | Broccolingual</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={pageUrl} />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="{meta.title} | Broccolingual" />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={pageUrl} />
+  <meta property="og:image" content="https://www.broccolingual.com/favicon.png" />
+  <meta property="article:published_time" content={meta.date} />
+  {#each meta.tags as tag}
+    <meta property="article:tag" content={tag} />
+  {/each}
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="{meta.title} | Broccolingual" />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content="https://www.broccolingual.com/favicon.png" />
+  {@html `<script type="application/ld+json">${JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": meta.title,
+    "datePublished": meta.date,
+    "description": description,
+    "url": pageUrl,
+    "author": {
+      "@type": "Person",
+      "name": "Broccolingual",
+      "url": "https://www.broccolingual.com"
+    },
+    "keywords": meta.tags.join(", ")
+  })}</script>`}
+</svelte:head>
 
 <a class="go-back" href="/blog">
   <span class="arrow">&#8592;</span>
