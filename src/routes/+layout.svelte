@@ -1,3 +1,7 @@
+<svelte:head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" />
+</svelte:head>
+
 <script>
   import { page } from '$app/stores';
   import '../app.css';

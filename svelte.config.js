@@ -1,5 +1,7 @@
 import adapter from '@sveltejs/adapter-static';
 import { mdsvex } from 'mdsvex';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 import { createRequire } from 'module'
 
 const require = createRequire(import.meta.url)
@@ -24,8 +26,10 @@ require('prismjs/components/prism-ini');
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   extensions: ['.svelte', '.md'],
-  preprocess: mdsvex({ 
+  preprocess: mdsvex({
     extensions: ['.md'],
+    remarkPlugins: [remarkMath],
+    rehypePlugins: [rehypeKatex],
     highlight: {
       highlighter: (code, lang) => {
         const grammar = prism.languages[lang] ?? prism.languages.plaintext
