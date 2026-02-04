@@ -1,7 +1,7 @@
 ---
 title: "テスト記事"
-date: "2025-11-02"
-tags: ["svelte", "web", "test"]
+date: "2020-01-01"
+tags: ["Svelte", "Web", "Test"]
 description: "Markdownの各要素の表示確認を行うためのテスト記事です。"
 ---
 

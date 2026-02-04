@@ -31,14 +31,14 @@
       description: "Turing Completeの非公式ガイド",
       link: "https://rococo-brioche-c96086.netlify.app/",
       img: sc_turing_complete,
-      tags: ["JavaScript"],
+      tags: ["Javascript"],
     },
     {
       title: "Twitch Watchparty",
       description: "Twitchの配信を2窓で楽しむためのアプリ",
       link: "https://naughty-mccarthy-e6ef3c.netlify.app/",
       img: sc_twitch_watchparty,
-      tags: ["JavaScript"],
+      tags: ["Javascript"],
     },
   ];
 

@@ -12,7 +12,14 @@ require('prismjs/components/prism-markup-templating');
 require('prismjs/components/prism-python');
 require('prismjs/components/prism-rust');
 require('prismjs/components/prism-go');
+require('prismjs/components/prism-haskell');
+require('prismjs/components/prism-lua');
+require('prismjs/components/prism-vim');
 require('prismjs/components/prism-bash');
+require('prismjs/components/prism-yaml');
+require('prismjs/components/prism-json');
+require('prismjs/components/prism-toml');
+require('prismjs/components/prism-ini');
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -22,7 +29,8 @@ const config = {
     highlight: {
       highlighter: (code, lang) => {
         const grammar = prism.languages[lang] ?? prism.languages.plaintext
-        return `<pre class="language-${lang}"><code>${prism.highlight(code, grammar, lang)}</code></pre>`
+        const highlighted = prism.highlight(code, grammar, lang).replace(/\{/g, '&#123;').replace(/\}/g, '&#125;')
+        return `<pre class="language-${lang}"><code>${highlighted}</code></pre>`
       }
     }
   }),
