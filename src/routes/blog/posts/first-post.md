@@ -2,6 +2,7 @@
 title: "テスト記事"
 date: "2025-11-02"
 tags: ["svelte", "web", "test"]
+description: "Markdownの各要素の表示確認を行うためのテスト記事です。"
 ---
 
 # h1タイトル
