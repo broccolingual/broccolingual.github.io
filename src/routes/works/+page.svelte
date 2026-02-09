@@ -20,11 +20,11 @@
       tags: ["Rust", "C"],
     },
     {
-      title: "VHDL Test Generator",
+      title: "Vig",
       description: "VHDLのテストベンチを自動生成するツール",
-      link: "https://github.com/broccolingual/vhdl-test-generator/",
+      link: "https://github.com/broccolingual/Vig/",
       img: background,
-      tags: ["Golang", "VHDL"],
+      tags: ["VHDL", "Rust"],
     },
     {
       title: "Turing Complete Guide",
