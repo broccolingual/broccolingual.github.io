@@ -27,17 +27,29 @@
 
 <svelte:head>
   <title>Broccolingual | Blog</title>
-  <meta name="description" content="broccolingual's tech blog" />
+  <meta name="description" content="Tech blog by Broccolingual — articles and tutorials on embedded systems, Rust, machine learning, Linux, and developer tools." />
   <link rel="canonical" href="https://www.broccolingual.com/blog" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Broccolingual | Blog" />
-  <meta property="og:description" content="broccolingual's tech blog" />
+  <meta property="og:description" content="Tech blog by Broccolingual — articles and tutorials on embedded systems, Rust, machine learning, Linux, and developer tools." />
   <meta property="og:url" content="https://www.broccolingual.com/blog" />
   <meta property="og:image" content="https://www.broccolingual.com/favicon.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Broccolingual | Blog" />
-  <meta name="twitter:description" content="broccolingual's tech blog" />
+  <meta name="twitter:description" content="Tech blog by Broccolingual — articles and tutorials on embedded systems, Rust, machine learning, Linux, and developer tools." />
   <meta name="twitter:image" content="https://www.broccolingual.com/favicon.png" />
+  {@html `<script type="application/ld+json">${JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Broccolingual | Blog",
+    "description": "Tech blog by Broccolingual — articles and tutorials on embedded systems, Rust, machine learning, Linux, and developer tools.",
+    "url": "https://www.broccolingual.com/blog",
+    "author": {
+      "@type": "Person",
+      "name": "Broccolingual",
+      "url": "https://www.broccolingual.com"
+    }
+  })}</script>`}
 </svelte:head>
 
 <section>
