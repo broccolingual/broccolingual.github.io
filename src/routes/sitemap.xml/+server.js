@@ -5,7 +5,9 @@ const site = 'https://www.broccolingual.com';
 const staticPages = ['/', '/works', '/blog'];
 
 export async function GET() {
-  const modules = import.meta.glob('/src/routes/blog/posts/*.md', { eager: true });
+  const modules = /** @type {Record<string, { metadata: { date: string } }>} */ (
+    import.meta.glob('/src/routes/blog/posts/*.md', { eager: true })
+  );
   const posts = Object.keys(modules).map((path) => {
     const slug = path.replace('/src/routes/blog/posts/', '').replace('.md', '');
     const { date } = modules[path].metadata;

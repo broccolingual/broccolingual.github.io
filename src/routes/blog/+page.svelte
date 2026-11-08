@@ -3,6 +3,7 @@
   const { posts } = data;
 
   let searchQuery = '';
+  /** @type {string[]} */
   let selectedTags = [];
 
   $: allTags = [...new Set(posts.flatMap(p => p.tags))];
@@ -16,6 +17,7 @@
     return matchesSearch && matchesTags;
   });
 
+  /** @param {string} tag */
   function toggleTag(tag) {
     if (selectedTags.includes(tag)) {
       selectedTags = selectedTags.filter(t => t !== tag);

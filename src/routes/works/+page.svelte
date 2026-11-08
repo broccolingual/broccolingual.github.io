@@ -42,6 +42,7 @@
     },
   ];
 
+  /** @type {string[]} */
   let selectedTags = [];
 
   $: allTags = [...new Set(items.flatMap(i => i.tags))];
@@ -51,6 +52,7 @@
       selectedTags.every(tag => item.tags.includes(tag));
   });
 
+  /** @param {string} tag */
   function toggleTag(tag) {
     if (selectedTags.includes(tag)) {
       selectedTags = selectedTags.filter(t => t !== tag);
