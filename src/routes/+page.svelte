@@ -1,5 +1,23 @@
 <script>
+  import { onMount } from 'svelte';
   import logo from "$lib/assets/logo.png";
+  import { load as loadMoments } from './moments/+page.js';
+
+  /** @type {{ slug: string, image: string, area: string }[]} */
+  let photoTiles = [];
+
+  onMount(() => {
+    const areas = 'abcdefghijklmn'.split('');
+    for (let i = areas.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [areas[i], areas[j]] = [areas[j], areas[i]];
+    }
+    photoTiles = loadMoments().posts.slice(0, 14).filter(post => post.image).map((post, index) => ({
+      slug: post.slug,
+      image: post.image,
+      area: areas[index]
+    }));
+  });
 </script>
 
 <svelte:head>
@@ -30,6 +48,13 @@
 </svelte:head>
 
 <div class="container">
+  <div class="photo-background" aria-hidden="true">
+    {#each photoTiles as tile (tile.slug)}
+      <div class="photo-tile" style:grid-area={tile.area}>
+        <img src={tile.image} alt="" />
+      </div>
+    {/each}
+  </div>
   <div class="main-content">
     <div class="left-column">
       <div class="left-inner">
@@ -163,6 +188,10 @@
 
 <style>
   .container {
+    --text-muted: #b0b0b0;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
     width: 100%;
     min-height: 100%;
     display: flex;
@@ -173,6 +202,48 @@
     gap: var(--space-lg);
   }
 
+  .photo-background {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-rows: repeat(6, minmax(0, 1fr));
+    grid-template-areas:
+      "a a b b c c"
+      "a a d e c c"
+      "f f g g h h"
+      "f f g g i i"
+      "j j k l m m"
+      "n n k l m m";
+    gap: var(--space-sm);
+    background: var(--bg);
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .photo-background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 42% 48% at 35% 45%, rgba(13, 13, 13, 0.7), transparent),
+      radial-gradient(ellipse 30% 45% at 85% 45%, rgba(13, 13, 13, 0.65), transparent),
+      rgba(13, 13, 13, 0.55);
+  }
+
+  .photo-tile {
+    overflow: hidden;
+    border-radius: var(--radius-md);
+  }
+
+  .photo-tile img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
   .main-content {
     width: 100%;
     max-width: 1400px;
@@ -180,6 +251,7 @@
     grid-template-columns: 1fr 300px;
     gap: var(--space-xl);
     align-items: start;
+    text-shadow: 0 1px 3px #000, 0 0 10px rgba(0, 0, 0, 0.9);
   }
 
   .bottom-content {
@@ -418,6 +490,7 @@
     border-radius: var(--radius-full);
     letter-spacing: 0.08em;
     text-transform: uppercase;
+    text-shadow: none;
   }
 
   .timeline-content h4 {
@@ -562,6 +635,7 @@
     gap: var(--space-xs);
     justify-content: center;
     flex-wrap: wrap;
+    text-shadow: 0 1px 3px #000, 0 0 10px rgba(0, 0, 0, 0.9);
   }
 
   .social-link {
@@ -610,6 +684,21 @@
   }
 
   @media (max-width: 768px) {
+    .photo-background {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-rows: repeat(9, minmax(0, 1fr));
+      grid-template-areas:
+        "a a b b"
+        "a a c c"
+        "d e c c"
+        "f f g g"
+        "f f h h"
+        "i j h h"
+        "i j m m"
+        "k k l l"
+        "k k n n";
+    }
+
     .container {
       gap: var(--space-md);
       padding: var(--space-md) var(--space-md);

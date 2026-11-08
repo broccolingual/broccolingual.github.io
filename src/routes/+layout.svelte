@@ -127,7 +127,7 @@
   main {
     width: 100%;
     height: 100vh;
-    padding: var(--space-xl);
+    padding: var(--space-lg);
     overflow: hidden;
   }
 
@@ -215,7 +215,7 @@
     width: 100%;
     height: 100%;
     overflow-y: auto;
-    padding: var(--space-xl) var(--space-3xl);
+    padding: var(--space-lg);
   }
 
   .content::-webkit-scrollbar {
@@ -289,7 +289,7 @@
     }
 
     .content {
-      padding: var(--space-md);
+      padding: var(--space-sm);
     }
 
     .content::-webkit-scrollbar {
