@@ -2,7 +2,7 @@ export const prerender = true;
 
 const site = 'https://www.broccolingual.com';
 
-const staticPages = ['/', '/works', '/blog'];
+const staticPages = ['/', '/works', '/moments', '/blog'];
 
 export async function GET() {
   const modules = /** @type {Record<string, { metadata: { date: string } }>} */ (

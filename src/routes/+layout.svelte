@@ -9,6 +9,7 @@
   const menuItems = [
     { name: 'Profile', link: '/' },
     { name: 'Works', link: '/works' },
+    { name: 'Moments', link: '/moments' },
     { name: 'Blog', link: '/blog' },
   ];
 </script>
